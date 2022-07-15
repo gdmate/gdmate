@@ -8,7 +8,12 @@
 import shutil
 nbdir = '../notebooks'
 docdir = './notebooks'
-shutil.copytree(nbdir,docdir)
+
+try:
+    shutil.copytree(nbdir,docdir)
+except FileExistsError:
+    shutil.rmtree(docdir)
+    shutil.copytree(nbdir,docdir)
 
 # -- Path setup --------------------------------------------------------------
 
