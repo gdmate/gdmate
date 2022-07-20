@@ -12,6 +12,7 @@ Welcome to gdmate's documentation!
 
    api
    notebooks/helloworld
+   notebooks/visualization
 
 
 

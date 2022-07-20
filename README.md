@@ -22,7 +22,7 @@ Authors (as of 2022)
 
 * Python 3.7+
 * Python modules:
-  NumPy, SciPy, Matplotlib
+  NumPy, SciPy, Matplotlib, Pyvista
 
 ## Optional, needed for some functionality
 
