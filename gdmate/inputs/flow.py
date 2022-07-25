@@ -72,7 +72,6 @@ def convert2SI(props,COH=1000):
     return(props_SI,COH)
 
 def scaleA(A_SI,n):
-    
     """
     Scale A from uniaxial experiments for ASPECT.
 
