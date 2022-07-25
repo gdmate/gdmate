@@ -22,7 +22,7 @@ setup(
         "Programming Language :: Python :: 3 :: Only",
     ],
     keywords="geodynamics",
-    packages=["gdmate"],
+    packages=["gdmate","gdmate.inputs"],
     python_requires=">=3.7, <4",
     install_requires=["numpy","scipy","matplotlib"],
     # package_data={ 
