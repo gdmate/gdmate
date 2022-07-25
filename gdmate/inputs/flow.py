@@ -47,5 +47,5 @@ def get_published(mineral,source,creep,dryness):
         E = 335 #kJ/mol
         V = 4 # 10^-6 m^3/mol
     
-    return(props)
+    return(A,n,m_diff,r,E,V)
         
