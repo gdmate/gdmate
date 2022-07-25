@@ -70,3 +70,14 @@ def convert2SI(props,COH=1000):
     props_SI = (A_SI,n,m_diff,r,E_SI,V_SI)
 
     return(props_SI,COH)
+
+def scaleA(A_SI,n):
+    
+    """
+    Scale A from uniaxial experiments for ASPECT.
+
+    Implemented in Danneburg et al., 2017
+    """
+    A_scaled = 2**(n-1) * 3**((n+1)/2) * A_SI
+
+    return(A_scaled)
