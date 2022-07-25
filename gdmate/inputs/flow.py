@@ -49,3 +49,24 @@ def get_published(mineral,source,creep,dryness):
     
     return(A,n,m_diff,r,E,V)
         
+def convert2SI(props,COH=1000):
+    """
+    Convert published flow law values to SI units.
+    
+    Assumes units follow Hirth03
+    """
+
+    A_pub = props[0]
+    n = props[1]
+    m_diff = props[2]
+    r = props[3]
+    E_pub = props[4]
+    V_pub = props[5]
+
+    A_SI = A_pub * 1e6**-n * 1e-6**m_diff * COH**-r # s^-1 Pa^-n m^m_diff COH^-r
+    E_SI = E_pub * 1000 # J/mol
+    V_SI = V_pub * 1e-6 # m^3/mol
+
+    props_SI = (A_SI,n,m_diff,r,E_SI,V_SI)
+
+    return(props_SI,COH)
