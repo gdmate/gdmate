@@ -1,2 +1,2 @@
 from gdmate.helloworld import helloworld
-from gdmate.helloworld import inputs
+from gdmate.inputs import flow
