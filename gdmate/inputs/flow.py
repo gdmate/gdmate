@@ -3,14 +3,14 @@ Module for flow law calculations
 """
 import numpy as np
 
-def get_published(mineral,source,creep,dryness):
+def get_published(material,source,creep,dryness):
     """
     Get published values for flow law.
     """
-    props = (mineral,source,creep,dryness)
+    props = (material,source,creep,dryness)
 
     if props == ('olivine','hirth','dislocation','dry'):
-        A = 1.1e5 # MPa^-n-r um^m_diff
+        A = 1.1e5 # MPa^-n-r um^m_diff s^-1
         n = 3.5
         m_diff = 0
         r = 0
@@ -21,7 +21,7 @@ def get_published(mineral,source,creep,dryness):
 
     elif props == ('olivine','hirth','dislocation','wet'):
         # Used values for constant COH of 1000 H/10^6Si
-        A = 90 # MPa^-n-r um^m_diff
+        A = 90 # MPa^-n-r um^m_diff s^-1
         n = 3.5
         m_diff = 0
         r = 1.2
@@ -29,7 +29,7 @@ def get_published(mineral,source,creep,dryness):
         V = 11 # 10^-6 m^3/mol
 
     elif props == ('olivine','hirth','diffusion','dry'):
-        A = 1.5e9 # MPa^-n-r um^m_diff
+        A = 1.5e9 # MPa^-n-r um^m_diff s^-1
         n = 1
         m_diff = 3
         r = 0
@@ -40,7 +40,7 @@ def get_published(mineral,source,creep,dryness):
 
     elif props == ('olivine','hirth','diffusion','wet'):
         # Used values for constant COH of 1000 H/10^6Si
-        A = 1.0e6 # MPa^-n-r um^m_diff
+        A = 1.0e6 # MPa^-n-r um^m_diff s^-1
         n = 1
         m_diff = 3
         r = 1
@@ -49,7 +49,7 @@ def get_published(mineral,source,creep,dryness):
 
     elif props == ('quartzite','gleason','dislocation','wet'):
         # Water fugacity not included in units so not used for conversion
-        A = 1.1e-4 # MPa^-n s^-1 um^m_diff
+        A = 1.1e-4 # MPa^-n s^-1 um^m_diff s^-1
         n = 4
         m_diff = 0
         r = 0 # Not considered
@@ -90,9 +90,9 @@ def scaleA(A_SI,n):
 
     return(A_scaled)
 
-def get_flow_law_parameters(mineral,source,creep,dryness):
+def get_flow_law_parameters(material,source,creep,dryness):
 
-    values = get_published(mineral,source,creep,dryness)
+    values = get_published(material,source,creep,dryness)
     values_str = ['{:0.2e}'.format(x) for x in values]
 
     print('Published Values:')
