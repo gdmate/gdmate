@@ -10,7 +10,7 @@ def get_published(mineral,source,creep,dryness):
     props = (mineral,source,creep,dryness)
 
     if props == ('olivine','hirth','dislocation','dry'):
-        A = 1.1e5 # MPa^-n um^m_diff COH^-r
+        A = 1.1e5 # MPa^-n um^m_diff COH^-r s^-1
         n = 3.5
         m_diff = 0
         r = 0
@@ -21,7 +21,7 @@ def get_published(mineral,source,creep,dryness):
 
     elif props == ('olivine','hirth','dislocation','wet'):
         # Used values for constant COH of 1000 H/10^6Si
-        A = 90 # MPa^-n um^m_diff COH^-r
+        A = 90 # MPa^-n um^m_diff COH^-r s^-1
         n = 3.5
         m_diff = 0
         r = 1.2
@@ -29,7 +29,7 @@ def get_published(mineral,source,creep,dryness):
         V = 11 # 10^-6 m^3/mol
 
     elif props == ('olivine','hirth','diffusion','dry'):
-        A = 1.5e9 # MPa^-n um^m_diff COH^-r
+        A = 1.5e9 # MPa^-n um^m_diff COH^-r s^-1
         n = 1
         m_diff = 3
         r = 0
@@ -40,12 +40,21 @@ def get_published(mineral,source,creep,dryness):
 
     elif props == ('olivine','hirth','diffusion','wet'):
         # Used values for constant COH of 1000 H/10^6Si
-        A = 1.0e6
+        A = 1.0e6 # MPa^-n um^m_diff COH^-r s^-1
         n = 1
         m_diff = 3
         r = 1
-        E = 335 #kJ/mol
+        E = 335 # kJ/mol
         V = 4 # 10^-6 m^3/mol
+
+    elif props == ('quartzite','gleason','dislocation','wet'):
+        # Water fugacity not included in units so not used for conversion
+        A = 1.1e-4 # MPa^-n s^-1 um^m_diff
+        n = 4
+        m_diff = 0
+        r = 0 # Not considered
+        E = 223 # kJ/mol
+        V = 0 # 10^-6 m^3/mol
     
     return(A,n,m_diff,r,E,V)
         

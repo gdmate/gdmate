@@ -27,6 +27,11 @@ def test_get_published():
 
     assert ol_wet_dif_hirth == (1.0e6,1,3,1,335,4)
 
+    qz_wet_dis_gleason = flow.get_published(
+        'quartzite','gleason','dislocation','wet')
+
+    assert qz_wet_dis_gleason == (1.1e-4,4,0,0,223,0)
+
 def test_convert2SI():
     """Test convert2SI function"""
 
