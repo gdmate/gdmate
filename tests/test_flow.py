@@ -49,14 +49,16 @@ def test_convert2SI():
     
     converted = flow.convert2SI(ol_dry_dif_hirth,COH=1000)
 
-    assert converted == (approx((1.50e-15,1,3,0,375e3,2e-6)),1000)
+    assert converted == (approx((1.50e-15,1,3,0,375e3,2e-6),
+    rel=1e-6,abs=1e-30),1000)
 
     ol_wet_dif_hirth = flow.get_published(
         'olivine','hirth','diffusion','wet')
     
     converted = flow.convert2SI(ol_wet_dif_hirth,COH=1000)
 
-    assert converted == (approx((1.00e-21,1,3,1,335e3,4e-6)),1000)
+    assert converted == (approx((1.00e-24,1,3,1,335e3,4e-6),
+    rel=1e-6,abs=1e-30),1000)
 
 def test_scaleA():
     """ Test for scaleA function"""
@@ -76,14 +78,19 @@ def test_scaleA():
     params = [ol_dry_dis_hirth,ol_wet_dis_hirth,
     ol_dry_dif_hirth,ol_wet_dif_hirth]
 
-    answers = [4.50e-15,1.51e-21,7.37e-15,3.00e-21]
+    answers = [7.37e-15,3.80e-25,4.50e-15,3.00e-24]
 
     for k,law in enumerate(params):
+        print(k,law)
         converted = flow.convert2SI(law,COH=1000)
 
         A_SI = converted[0][0]
         n = converted[0][1]
 
+        print(A_SI,n)
+
         scaled = flow.scaleA(A_SI,n)
 
-        assert scaled == approx(answers[k])
+        print(scaled)
+
+        assert scaled == approx(answers[k],rel=1e-2,abs=1e-30)

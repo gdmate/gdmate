@@ -63,7 +63,7 @@ def convert2SI(values,COH=1000):
     E_pub = values[4]
     V_pub = values[5]
 
-    A_SI = A_pub * 1e6**(-n-r) * 1e-6**m_diff # s^-1 Pa^-n m^m_diff COH^-r
+    A_SI = A_pub * 1e6**(-n-r) * 1e-6**(m_diff) # s^-1 Pa^-n m^m_diff COH^-r
     E_SI = E_pub * 1000 # J/mol
     V_SI = V_pub * 1e-6 # m^3/mol
 
