@@ -105,7 +105,7 @@ def get_flow_law_parameters(material,source,creep,dryness):
     values_str = ['{:0.2e}'.format(x) for x in values]
 
     print('Published Values:')
-    print('A - prefactor (MPa^-n-r um^m_diff: ',values_str[0])
+    print('A - prefactor (MPa^-n-r um^m_diff s^-1): ',values_str[0])
     print('n - stress exponent: ',values_str[1])
     print('m_diff - grain size exponent: ',values_str[2])
     print('r - fugacity exponent: ',values_str[3])
@@ -116,7 +116,7 @@ def get_flow_law_parameters(material,source,creep,dryness):
     converted_str = ['{:0.2e}'.format(x) for x in converted]
 
     print('\nConverted to SI Units:')
-    print('A (Pa^-n-r m^m_diff): ',converted_str[0])
+    print('A (Pa^-n-r m^m_diff s^-1): ',converted_str[0])
     print('E - activation energy (J/mol): ',converted_str[4])
     print('V - activation volume (m^3/mol): ',converted_str[5])
 
@@ -124,7 +124,7 @@ def get_flow_law_parameters(material,source,creep,dryness):
     A_scaled_str = '{:0.2e}'.format(A_scaled)
 
     print('\nScaled A for ASPECT:')
-    print('A scaled (Pa^-n-r m^m_diff): ',A_scaled_str)
+    print('A scaled (Pa^-n-r m^m_diff s^-1): ',A_scaled_str)
 
     return(A_scaled,values[1],values[2],values[3],converted[4],
             converted[5])
