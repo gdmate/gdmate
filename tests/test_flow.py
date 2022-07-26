@@ -4,6 +4,8 @@ Tests for inputs.flow module
 from pytest import approx
 from gdmate.inputs import flow
 
+import numpy as np
+
 def test_get_published():
     """Test get_published function"""
 
@@ -31,6 +33,11 @@ def test_get_published():
         'quartzite','gleason','dislocation','wet')
 
     assert qz_wet_dis_gleason == (1.1e-4,4,0,0,223,0)
+
+    an_wet_dis_rybacki = flow.get_published(
+        'anorthite','rybacki','dislocation','wet')
+
+    assert an_wet_dis_rybacki == (10**0.2,3,0,1,345,38)
 
 def test_convert2SI():
     """Test convert2SI function"""
@@ -77,6 +84,14 @@ def test_convert2SI():
     assert converted == approx((1.10e-28,4,0,0,223e3,0),
     rel=rel,abs=abs)
 
+    an_wet_dis_rybacki = flow.get_published(
+        'anorthite','rybacki','dislocation','wet')
+
+    converted = flow.convert2SI(an_wet_dis_rybacki)
+
+    assert converted == approx((1.58e-24,3,0,1,345e3,38e-6),
+     rel=rel,abs=abs)
+
 def test_scaleA():
     """ Test for scaleA function"""
 
@@ -93,13 +108,17 @@ def test_scaleA():
         'olivine','hirth','diffusion','wet')
 
     qz_wet_dis_gleason = flow.get_published(
-        'quartzite','gleason','dislocation','wet')  
+        'quartzite','gleason','dislocation','wet')
+
+    an_wet_dis_rybacki = flow.get_published(
+        'anorthite','rybacki','dislocation','wet')  
     
     params = [ol_dry_dis_hirth,ol_wet_dis_hirth,
-    ol_dry_dif_hirth,ol_wet_dif_hirth,qz_wet_dis_gleason]
+    ol_dry_dif_hirth,ol_wet_dif_hirth,qz_wet_dis_gleason,
+    an_wet_dis_rybacki]
 
     answers = [7.37e-15,3.80e-25,4.50e-15,3.00e-24,
-                1.37e-26]
+                1.37e-26,5.71e-23]
 
     for k,law in enumerate(params):
         converted = flow.convert2SI(law)

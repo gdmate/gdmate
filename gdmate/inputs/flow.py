@@ -56,6 +56,15 @@ def get_published(material,source,creep,dryness):
         E = 223 # kJ/mol
         V = 0 # 10^-6 m^3/mol
     
+    elif props == ('anorthite','rybacki','dislocation','wet'):
+        # A reported as log(A) so converted to A here
+        A = 10**0.2 # MPa^-n-r um^m_diff s^-1
+        n = 3
+        m_diff = 0
+        r = 1
+        E = 345 # kJ/mol
+        V = 38 # 10^-6 m^3/mol
+    
     return(A,n,m_diff,r,E,V)
         
 def convert2SI(values):
