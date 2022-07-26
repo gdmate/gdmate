@@ -69,6 +69,14 @@ def test_convert2SI():
     assert converted == approx((1.00e-24,1,3,1,335e3,4e-6),
     rel=rel,abs=abs)
 
+    qz_wet_dis_gleason = flow.get_published(
+        'quartzite','gleason','dislocation','wet')
+
+    converted = flow.convert2SI(qz_wet_dis_gleason)
+
+    assert converted == approx((1.10e-28,4,0,0,223e3,0),
+    rel=rel,abs=abs)
+
 def test_scaleA():
     """ Test for scaleA function"""
 
@@ -83,11 +91,15 @@ def test_scaleA():
 
     ol_wet_dif_hirth = flow.get_published(
         'olivine','hirth','diffusion','wet')
+
+    qz_wet_dis_gleason = flow.get_published(
+        'quartzite','gleason','dislocation','wet')  
     
     params = [ol_dry_dis_hirth,ol_wet_dis_hirth,
-    ol_dry_dif_hirth,ol_wet_dif_hirth]
+    ol_dry_dif_hirth,ol_wet_dif_hirth,qz_wet_dis_gleason]
 
-    answers = [7.37e-15,3.80e-25,4.50e-15,3.00e-24]
+    answers = [7.37e-15,3.80e-25,4.50e-15,3.00e-24,
+                1.37e-26]
 
     for k,law in enumerate(params):
         converted = flow.convert2SI(law)
