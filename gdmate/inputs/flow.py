@@ -49,27 +49,27 @@ def get_published(mineral,source,creep,dryness):
     
     return(A,n,m_diff,r,E,V)
         
-def convert2SI(props,COH=1000):
+def convert2SI(values,COH=1000):
     """
     Convert published flow law values to SI units.
     
     Assumes units follow Hirth03
     """
 
-    A_pub = props[0]
-    n = props[1]
-    m_diff = props[2]
-    r = props[3]
-    E_pub = props[4]
-    V_pub = props[5]
+    A_pub = values[0]
+    n = values[1]
+    m_diff = values[2]
+    r = values[3]
+    E_pub = values[4]
+    V_pub = values[5]
 
-    A_SI = A_pub * 1e6**-n * 1e-6**m_diff * COH**-r # s^-1 Pa^-n m^m_diff COH^-r
+    A_SI = A_pub * 1e6**(-n-r) * 1e-6**m_diff # s^-1 Pa^-n m^m_diff COH^-r
     E_SI = E_pub * 1000 # J/mol
     V_SI = V_pub * 1e-6 # m^3/mol
 
-    props_SI = (A_SI,n,m_diff,r,E_SI,V_SI)
+    values_SI = (A_SI,n,m_diff,r,E_SI,V_SI)
 
-    return(props_SI,COH)
+    return(values_SI,COH)
 
 def scaleA(A_SI,n):
     """
@@ -80,3 +80,21 @@ def scaleA(A_SI,n):
     A_scaled = 2**(n-1) * 3**((n+1)/2) * A_SI
 
     return(A_scaled)
+
+def get_flow_law_parameters(mineral,source,creep,dryness):
+
+    values = get_published(mineral,source,creep,dryness)
+    print('Published Values:')
+    print('A - prefactor (MPa^-n um^m_diff COH^-r): ',values[0])
+    print('n - stress exponent: ',values[1])
+    print('m_diff - grain size exponent: ',values[2])
+    print('r - fugacity exponent: ',values[3])
+    print('E - activation energy (kJ/mol)',values[4])
+    print('V - activation volume (10^-6 m^3/mol)',values[5])
+
+    converted = convert2SI(values,COH=1000)
+    print('Converted to SI Units:')
+    print('A (Pa^-n m^m_diff COH^-r')
+
+
+    A_scaled = (converted[0][0],converted[0][1])
