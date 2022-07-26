@@ -29,36 +29,40 @@ def test_get_published():
 
 def test_convert2SI():
     """Test convert2SI function"""
+    rel = 1e-2
+    abs = 1e-30
 
     ol_dry_dis_hirth = flow.get_published(
         'olivine','hirth','dislocation','dry')
     
-    converted = flow.convert2SI(ol_dry_dis_hirth,COH=1000)
+    converted = flow.convert2SI(ol_dry_dis_hirth)
 
-    assert converted == (approx((1.10e-16,3.5,0,0,530e3,18e-6)),1000)
+    assert converted == approx((1.10e-16,3.5,0,0,530e3,18e-6),
+    rel=rel,abs=abs)
 
     ol_wet_dis_hirth = flow.get_published(
         'olivine','hirth','dislocation','wet')
     
-    converted = flow.convert2SI(ol_wet_dis_hirth,COH=1000)
+    converted = flow.convert2SI(ol_wet_dis_hirth)
 
-    assert converted == (approx((2.26e-23,3.5,0,1.2,480e3,11e-6)),1000)
+    assert converted == approx((5.68e-27,3.5,0,1.2,480e3,11e-6),
+    rel=rel,abs=abs)
 
     ol_dry_dif_hirth = flow.get_published(
         'olivine','hirth','diffusion','dry')
     
-    converted = flow.convert2SI(ol_dry_dif_hirth,COH=1000)
+    converted = flow.convert2SI(ol_dry_dif_hirth)
 
-    assert converted == (approx((1.50e-15,1,3,0,375e3,2e-6),
-    rel=1e-6,abs=1e-30),1000)
+    assert converted == approx((1.50e-15,1,3,0,375e3,2e-6),
+    rel=rel,abs=abs)
 
     ol_wet_dif_hirth = flow.get_published(
         'olivine','hirth','diffusion','wet')
     
-    converted = flow.convert2SI(ol_wet_dif_hirth,COH=1000)
+    converted = flow.convert2SI(ol_wet_dif_hirth)
 
-    assert converted == (approx((1.00e-24,1,3,1,335e3,4e-6),
-    rel=1e-6,abs=1e-30),1000)
+    assert converted == approx((1.00e-24,1,3,1,335e3,4e-6),
+    rel=rel,abs=abs)
 
 def test_scaleA():
     """ Test for scaleA function"""
@@ -81,16 +85,11 @@ def test_scaleA():
     answers = [7.37e-15,3.80e-25,4.50e-15,3.00e-24]
 
     for k,law in enumerate(params):
-        print(k,law)
-        converted = flow.convert2SI(law,COH=1000)
+        converted = flow.convert2SI(law)
 
-        A_SI = converted[0][0]
-        n = converted[0][1]
-
-        print(A_SI,n)
+        A_SI = converted[0]
+        n = converted[1]
 
         scaled = flow.scaleA(A_SI,n)
-
-        print(scaled)
 
         assert scaled == approx(answers[k],rel=1e-2,abs=1e-30)
