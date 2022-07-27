@@ -6,3 +6,4 @@ API
 
     gdmate.helloworld
     gdmate.pyvista_vis
+    gdmate.flow_laws

@@ -13,6 +13,7 @@
    guides/python_package
    notebooks/helloworld
    notebooks/visualization
+   notebooks/flow_laws
    api
 
 
