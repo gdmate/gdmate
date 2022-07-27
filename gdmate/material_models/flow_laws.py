@@ -6,9 +6,25 @@ import numpy as np
 def get_published(material,source,creep,dryness):
     """
     Get published values for flow law.
+
+    Parameters:
+        material: rock/mineral being deformed
+        source: first author of original source
+        creep: dislocation or diffusion creep
+        dryness: wet or dry
+
+    Returns:
+        A: prefactor (MPa^-n-r um^m_diff s^-1)
+        n: stress exponent
+        m_diff: grain size exponent
+        r: fugacity exponent
+        E: activation energy (kJ/mol)
+        V: activation volume (10^-6 m^3/mol)
     """
+    # Combine properties into a tuple
     props = (material,source,creep,dryness)
 
+    # Get values depending on tuple supplied
     if props == ('olivine','hirth','dislocation','dry'):
         A = 1.1e5 # MPa^-n-r um^m_diff s^-1
         n = 3.5
@@ -71,9 +87,18 @@ def convert2SI(values):
     """
     Convert published flow law values to SI units.
     
-    Assumes units follow Hirth03
+    Assumes units follow those in Hirth and Kohlstedt, 2003.
+    Only changes A, E, and V.
+
+    Parameters:
+        values: tuple of published values (A,n,m_diff,r,E,V)
+    
+    Return:
+        values_SI: tuple of values with A,E, and V in SI units 
+                    (A_SI,n,m_diff,r,E_SI,V_SI)
     """
 
+    # Unpack tuple
     A_pub = values[0]
     n = values[1]
     m_diff = values[2]
@@ -81,10 +106,12 @@ def convert2SI(values):
     E_pub = values[4]
     V_pub = values[5]
 
+    # Apply unit conversions
     A_SI = A_pub * 1e6**(-n-r) * 1e-6**(m_diff) # s^-1 Pa^-n-r m^m_diff
     E_SI = E_pub * 1000 # J/mol
     V_SI = V_pub * 1e-6 # m^3/mol
 
+    # Repack tuple
     values_SI = (A_SI,n,m_diff,r,E_SI,V_SI)
 
     return(values_SI)
@@ -93,15 +120,47 @@ def scaleA(A_SI,n):
     """
     Scale A from uniaxial experiments for ASPECT.
 
-    Implemented in Danneburg et al., 2017
+    Implemented in Dannberg et al., 2017 supplementary Excel file. Appropriate
+    for relating strain rate to viscosity for a uniaxial strain experiment.
+
+    Parameters:
+        A_SI: prefactor in SI units (MPa^-n-r um^m_diff s^-1)
+        n: stress exponent
+    
+    Returns:
+        A_scaled: Scaled A in SI units (MPa^-n-r um^m_diff s^-1)
     """
     A_scaled = 2**(n-1) * 3**((n+1)/2) * A_SI
 
     return(A_scaled)
 
 def get_flow_law_parameters(material,source,creep,dryness):
+    """
+    Get flow law parameters in correct units and scaled for ASPECT
 
+    Converts published values to SI units and then scales the prefactor (A).
+    Prints the values at each step and returns the final values for use in 
+    ASPECT.
+
+    Parameters:
+        material: rock/mineral being deformed
+        source: first author of original source
+        creep: dislocation or diffusion creep
+        dryness: wet or dry
+
+    Returns:
+        A_scaled: scaled prefactor (Pa^-n-r m^m_diff s^-1)
+        n: stress exponent
+        m_diff: grain size exponent
+        r: fugacity exponent
+        E_SI: activation energy (J/mol)
+        V_SI: activation volume (m^3/mol)
+    """
+
+    # Get the published values
     values = get_published(material,source,creep,dryness)
+
+    # Format to 2 decimal places and print.
     values_str = ['{:0.2e}'.format(x) for x in values]
 
     print('Published Values:')
@@ -112,7 +171,10 @@ def get_flow_law_parameters(material,source,creep,dryness):
     print('E - activation energy (kJ/mol)',values_str[4])
     print('V - activation volume (10^-6 m^3/mol)',values_str[5])
 
+    # Convert values to SI units
     converted = convert2SI(values)
+
+    # Format to 2 decimal places and print.
     converted_str = ['{:0.2e}'.format(x) for x in converted]
 
     print('\nConverted to SI Units:')
@@ -120,11 +182,20 @@ def get_flow_law_parameters(material,source,creep,dryness):
     print('E - activation energy (J/mol): ',converted_str[4])
     print('V - activation volume (m^3/mol): ',converted_str[5])
 
+    # Scale the A prefactor
     A_scaled = scaleA(converted[0],converted[1])
+
+    # Format to 2 decimal places and print.
     A_scaled_str = '{:0.2e}'.format(A_scaled)
 
     print('\nScaled A for ASPECT:')
     print('A scaled (Pa^-n-r m^m_diff s^-1): ',A_scaled_str)
 
-    return(A_scaled,values[1],values[2],values[3],converted[4],
-            converted[5])
+    # Pull values from appropriate tuple for output.
+    n = values[1]
+    m = values[2]
+    r = values[3]
+    E_SI = converted[4]
+    V_SI = converted[5]
+
+    return(A_scaled,n,m,r,E_SI,V_SI)
