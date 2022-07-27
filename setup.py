@@ -22,8 +22,8 @@ setup(
         "Programming Language :: Python :: 3 :: Only",
     ],
     keywords="geodynamics",
-    packages=["gdmate","gdmate.visualization","gdmate.faults","gdmate.io",
-        "gdmate.rheology"],
+    packages=["gdmate","gdmate.visualization","gdmate.analysis_modules",
+        "gdmate.io","gdmate.education","gdmate.material_models"],
     python_requires=">=3.7, <4",
     install_requires=["numpy","scipy","matplotlib","pyvista"],
     # package_data={ 
