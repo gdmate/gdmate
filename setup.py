@@ -16,13 +16,14 @@ setup(
     long_description=long_description, 
     long_description_content_type="text/markdown", 
     url="https://github.com/gdmate/gdmate",
-    author="",
+    author="Dylan Vasey, John Naliboff",
     author_email="",
     classifiers=[ 
         "Programming Language :: Python :: 3 :: Only",
     ],
     keywords="geodynamics",
-    packages=["gdmate","gdmate.visualization"],
+    packages=["gdmate","gdmate.visualization","gdmate.faults","gdmate.io",
+        "gdmate.rheology"],
     python_requires=">=3.7, <4",
     install_requires=["numpy","scipy","matplotlib","pyvista"],
     # package_data={ 
