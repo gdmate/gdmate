@@ -1,11 +1,11 @@
 """
-Module for visualizing model results using Pyvista and other tools
+Module for visualizing model results using Pyvista
 """
 import numpy as np
 import matplotlib.pyplot as plt
 import pyvista as pv
 
-def plot_pyvista_2d(mesh,field,bounds=None,ax=None,colorbar=False,**kwargs):
+def pv_plot_2d(mesh,field,bounds=None,ax=None,colorbar=False,**kwargs):
     """
     Plot 2D mesh using Pyvista on a Matplotlib axes.
 

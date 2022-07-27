@@ -1,2 +1,2 @@
 from gdmate.helloworld import helloworld
-from gdmate.analysis import visualization
+from gdmate.visualization import pyvista_vis
