@@ -23,9 +23,9 @@ setup(
     ],
     keywords="geodynamics",
     packages=["gdmate","gdmate.visualization","gdmate.analysis_modules",
-        "gdmate.io","gdmate.education","gdmate.material_models"],
+        "gdmate.io","gdmate.education","gdmate.material_models","gdmate.parameters"],
     python_requires=">=3.7, <4",
-    install_requires=["numpy","scipy","matplotlib","pyvista"],
+    install_requires=["numpy","scipy","matplotlib","pyvista","xmltodict","requests"],
     # package_data={ 
     # },
 )
