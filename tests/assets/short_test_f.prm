@@ -1,0 +1,27 @@
+# At the top, we define the number of space dimensions we would like to work
+# in:
+set Dimension                              = 2
+
+# There are several global variables that have to do with what
+# time system we want to work in and what the end time is. We
+# also designate an output directory.
+set Use years in output instead of seconds = true
+set End time                               = 3e10
+set Output directory                       = output
+
+
+# Then come a number of sections that deal with the setup
+# of the problem to solve. The first one deals with the
+# geometry of the domain within which we want to solve.
+# The sections that follow all have the same basic setup
+# where we select the name of a particular model (here,
+# the box geometry) and then, in a further subsection,
+# set the parameters that are specific to this particular
+# model.
+subsection Geometry model
+  set Model name = box
+  subsection Box
+    set X extent = 4.2e6
+    set Y extent = 3e6
+  end
+end
