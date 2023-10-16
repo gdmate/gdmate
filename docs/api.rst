@@ -15,3 +15,4 @@ API
     :recursive:
 
     gdmate.pyvista_vis
+    gdmate.rheology
