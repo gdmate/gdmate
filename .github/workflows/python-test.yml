@@ -44,7 +44,7 @@ jobs:
         run: pytest
 
       - name: Test reproducible notebooks
-        run: pytest --nbmake notebooks/helloworld.ipynb notebooks/visualization.ipynb
+        run: pytest --nbmake notebooks
 
   documentation:
     runs-on: ubuntu-latest
