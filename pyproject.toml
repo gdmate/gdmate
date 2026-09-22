@@ -43,6 +43,7 @@ dev = [
   "ruff>=0.11",
 ]
 docs = [
+  "ipython",
   "myst-parser",
   "nbsphinx",
   "sphinx>=7",
