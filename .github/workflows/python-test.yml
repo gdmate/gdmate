@@ -58,6 +58,9 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Set up Pandoc
+        uses: pandoc/actions/setup@v1
+
       - name: Install package and documentation dependencies
         run: |
           python -m pip install --upgrade pip
