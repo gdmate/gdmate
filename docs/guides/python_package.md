@@ -12,7 +12,7 @@ defines the package and its development tools. The installable source code
 resides in the `gdmate` directory. Additional directories contain
 documentation (`docs`), Jupyter Notebooks (`notebooks`), and tests (`tests`).
 
-Within the `gdmate` directory, the source code is contained within _modules_, which are individual `.py` files that each contain callable _functions_. These modules are organized into _packages_, which are directories containing multiple modules and an `__init__.py` file, which indicates that the modules should be treated together as a package. The principal package is `gdmate`, and each of the subdirectories (e.g. `analysis_modules`, `io`, etc.) are considered a _subpackage_ of gdmate. Each package/subpackage needs to be installed during package setup, and the package/subpackage structure is an important consideration for importing and namespaces wihen using the package.
+Within the `gdmate` directory, the source code is contained within _modules_, which are individual `.py` files that each contain callable _functions_. These modules are organized into _packages_, which are directories containing multiple modules and an `__init__.py` file, which indicates that the modules should be treated together as a package. The principal package is `gdmate`, and each subdirectory (for example, `analysis`, `aspect_tools`, or `rheology_models`) is considered a _subpackage_ of GDMATE. Each package/subpackage needs to be installed during package setup, and the package/subpackage structure is an important consideration for imports and namespaces when using the package.
 
 More about Python modules available [here](https://docs.python.org/3/tutorial/modules.html), and more about packaging [here](https://packaging.python.org/en/latest/tutorials/packaging-projects/).
 
@@ -42,7 +42,7 @@ runtime dependencies. Contributors can use `pip install -e ".[dev]"` for an
 editable installation with the test, lint, and build tools.
 
 ## Imports and Namespaces ##
-If all `__init__.py` files are blank, each subpackage within the Python package can be imported directly (e.g., `import gdmate.analysis_modules`). However, if only the root package is imported (i.e., `import gdmate`), the modules within subpackages will not be accessible. Adding import statements to the base `__init__.py` file defines the namespaces for subpackages, modules, and or functions in relation to the base package. For example, the `__init__.py` file for GDMATE contains the line:
+If all `__init__.py` files are blank, each subpackage within the Python package can be imported directly (e.g., `import gdmate.analysis`). However, if only the root package is imported (i.e., `import gdmate`), the modules within subpackages will not be accessible. Adding import statements to the base `__init__.py` file defines the namespaces for subpackages, modules, and/or functions in relation to the base package. For example, the `__init__.py` file for GDMATE contains the line:
 
 ```
 from gdmate.visualization import pyvista_vis
