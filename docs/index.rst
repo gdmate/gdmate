@@ -15,6 +15,7 @@
    notebooks/helloworld
    notebooks/visualization
    notebooks/rheology_geotherm
+   notebooks/aspect_tools/log_parser
    api
 
 
