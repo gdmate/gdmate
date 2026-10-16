@@ -14,6 +14,7 @@
    guides/python_package
    notebooks/helloworld
    notebooks/visualization
+   notebooks/aspect_tools/aspect_parameter_io
    notebooks/rheology_geotherm
    api
 

@@ -61,7 +61,7 @@ We extend testing to verify the reproducible Jupyter Notebooks with the nbmake
 plugin for Pytest. Notebook tests are run separately from unit tests:
 
 ```console
-pytest --nbmake notebooks/helloworld.ipynb notebooks/visualization.ipynb
+pytest --nbmake notebooks
 ```
 
 The GitHub Actions workflow tests Python 3.9 through 3.13. It also builds the
