@@ -1,0 +1,69 @@
+--     . version 3.1.0-pre (main_collision, 165fc21cc)
+*** Timestep 100:  t=746321 years, dt=7715.11 years
++----------------------------------------------+------------+------------+
+| Total wallclock time elapsed since start     |  3.19e+03s |            |
+|                                              |            |            |
+| Section                          | no. calls |  wall time | % of total |
++----------------------------------+-----------+------------+------------+
+| Assemble Stokes system rhs       |       217 |       266s |       8.3% |
+| Assemble temperature system      |       217 |       293s |       9.2% |
+| Build Stokes preconditioner      |       217 |       1.9s |         0% |
+| Build temperature preconditioner |       217 |      3.58s |      0.11% |
+| Create snapshot                  |         2 |      27.7s |      0.87% |
+| Execute FastScape                |       100 |  1.65e+03s |        52% |
+| FastScape plugin                 |       100 |  1.68e+03s |        53% |
+| Initialization                   |         1 |      1.67s |         0% |
+| Mesh deformation                 |       101 |   1.7e+03s |        53% |
+| Mesh deformation initialize      |         5 |     0.512s |         0% |
+| Particles: Advect                |       434 |      9.62s |       0.3% |
+| Particles: Copy                  |       217 |      6.33s |       0.2% |
+| Particles: Exchange ghosts       |       222 |      3.18s |         0% |
+| Particles: Generate              |         5 |     0.193s |         0% |
+| Particles: Initialization        |         1 |  0.000248s |         0% |
+| Particles: Initialize properties |         5 |      1.24s |         0% |
+| Particles: Interpolate           |       217 |      56.2s |       1.8% |
+| Particles: Sort                  |       434 |        31s |      0.97% |
+| Particles: Update properties     |       217 |      7.07s |      0.22% |
+| Postprocessing                   |       101 |       141s |       4.4% |
+| Refine mesh structure, part 1    |        54 |      52.3s |       1.6% |
+| Refine mesh structure, part 2    |        54 |       132s |       4.2% |
+| Setup dof systems                |        55 |      13.5s |      0.42% |
+| Setup initial conditions         |         5 |      2.06s |         0% |
+| Setup matrices                   |        50 |      13.3s |      0.42% |
+| Solve Stokes system              |       217 |       311s |       9.8% |
+| Solve temperature system         |       217 |      12.7s |       0.4% |
++----------------------------------+-----------+------------+------------+
+*** Timestep 200:  t=1.39782e+06 years, dt=5318.82 years
++----------------------------------------------+------------+------------+
+| Total wallclock time elapsed since start     |  6.31e+03s |            |
+|                                              |            |            |
+| Section                          | no. calls |  wall time | % of total |
++----------------------------------+-----------+------------+------------+
+| Assemble Stokes system rhs       |       376 |       518s |       8.2% |
+| Assemble temperature system      |       376 |       573s |       9.1% |
+| Build Stokes preconditioner      |       376 |      3.67s |         0% |
+| Build temperature preconditioner |       376 |      7.24s |      0.11% |
+| Create snapshot                  |         4 |      55.4s |      0.88% |
+| Execute FastScape                |       200 |   3.3e+03s |        52% |
+| FastScape plugin                 |       200 |  3.36e+03s |        53% |
+| Initialization                   |         1 |      1.67s |         0% |
+| Mesh deformation                 |       201 |  3.39e+03s |        54% |
+| Mesh deformation initialize      |         5 |     0.512s |         0% |
+| Particles: Advect                |       752 |      18.9s |       0.3% |
+| Particles: Copy                  |       376 |      11.9s |      0.19% |
+| Particles: Exchange ghosts       |       381 |      5.79s |         0% |
+| Particles: Generate              |         5 |     0.193s |         0% |
+| Particles: Initialization        |         1 |  0.000248s |         0% |
+| Particles: Initialize properties |         5 |      1.24s |         0% |
+| Particles: Interpolate           |       376 |       109s |       1.7% |
+| Particles: Sort                  |       752 |      61.9s |      0.98% |
+| Particles: Update properties     |       376 |      13.7s |      0.22% |
+| Postprocessing                   |       201 |       291s |       4.6% |
+| Refine mesh structure, part 1    |       104 |       117s |       1.8% |
+| Refine mesh structure, part 2    |       104 |       248s |       3.9% |
+| Setup dof systems                |       105 |      28.3s |      0.45% |
+| Setup initial conditions         |         5 |      2.06s |         0% |
+| Setup matrices                   |       100 |      30.5s |      0.48% |
+| Solve Stokes system              |       376 |       593s |       9.4% |
+| Solve temperature system         |       376 |      20.4s |      0.32% |
++----------------------------------+-----------+------------+------------+
