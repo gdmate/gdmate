@@ -16,6 +16,7 @@
    notebooks/visualization
    notebooks/aspect_tools/aspect_parameter_io
    notebooks/rheology_geotherm
+   notebooks/slurm_parser
    api
 
 
