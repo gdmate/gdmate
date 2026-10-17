@@ -16,6 +16,11 @@ _DIRECTIVE_RE = re.compile(
     r"(?P<comment>[ \t]+#.*)?"
     r"(?P<newline>\r?\n)?$"
 )
+_COMMAND_RE = re.compile(
+    r"^(?P<indent>[ \t]*)"
+    r"(?P<command>(?:ibrun|srun|mpirun)(?:[ \t]+.*?)?)"
+    r"(?P<newline>\r?\n)?$"
+)
 
 
 @dataclass(frozen=True)
@@ -87,6 +92,41 @@ class SlurmScript:
     def text(self) -> str:
         """Return the complete current script."""
         return "".join(self._lines)
+
+    def _command_match(self):
+        matches = []
+        for index in range(self._header_end, len(self._lines)):
+            match = _COMMAND_RE.match(self._lines[index])
+            if match is not None:
+                matches.append((index, match))
+
+        if not matches:
+            raise ValueError(
+                "SLURM script does not contain an ibrun, srun, or mpirun command"
+            )
+        if len(matches) > 1:
+            raise ValueError("SLURM script contains multiple launcher commands")
+        return matches[0]
+
+    @property
+    def command(self) -> str:
+        """Return the unique ``ibrun``, ``srun``, or ``mpirun`` command."""
+        _, match = self._command_match()
+        return match.group("command")
+
+    def set_command(self, command: str) -> None:
+        """Replace the launcher command while preserving indentation and newline."""
+        if "\n" in command or "\r" in command:
+            raise ValueError("SLURM command must be a single line")
+
+        replacement = command.lstrip(" \t")
+        if _COMMAND_RE.match(replacement) is None:
+            raise ValueError("SLURM command must use ibrun, srun, or mpirun")
+
+        index, match = self._command_match()
+        self._lines[index] = (
+            f"{match.group('indent')}{replacement}{match.group('newline') or ''}"
+        )
 
     def get_directive(self, option: str) -> str:
         """Return the value of the last matching directive."""

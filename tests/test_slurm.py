@@ -78,3 +78,57 @@ def test_parse_requires_a_slurm_directive():
     """A shell script without any SBATCH header is not a SLURM template."""
     with pytest.raises(ValueError, match="SBATCH"):
         SlurmScript("#!/bin/bash\necho run\n")
+
+
+@pytest.mark.parametrize("launcher", ["ibrun", "srun", "mpirun"])
+def test_command_recognizes_supported_launchers(launcher):
+    """Common MPI launchers identify the executable command in the body."""
+    script = SlurmScript(
+        "#!/bin/bash\n#SBATCH --time=01:00:00\n\n"
+        f"  {launcher} aspect case.prm\n"
+    )
+
+    assert script.command == f"{launcher} aspect case.prm"
+
+
+def test_set_command_preserves_indentation_newline_and_other_body_text():
+    """Replacing the launcher line does not rewrite neighboring body content."""
+    script = SlurmScript(
+        "#!/bin/bash\r\n#SBATCH --time=01:00:00\r\n\r\n"
+        "module load aspect\r\n"
+        "\tibrun aspect case.prm\r\n"
+        "echo finished\r\n"
+    )
+
+    script.set_command("ibrun aspect case_modified.prm")
+
+    assert script.command == "ibrun aspect case_modified.prm"
+    assert script.body == (
+        "module load aspect\r\n"
+        "\tibrun aspect case_modified.prm\r\n"
+        "echo finished\r\n"
+    )
+
+
+def test_command_requires_exactly_one_supported_launcher_line():
+    """Missing or ambiguous launcher commands fail rather than guessing."""
+    missing = SlurmScript("#!/bin/bash\n#SBATCH --time=01:00:00\necho run\n")
+    ambiguous = SlurmScript(
+        "#!/bin/bash\n#SBATCH --time=01:00:00\n"
+        "srun aspect first.prm\nmpirun aspect second.prm\n"
+    )
+
+    with pytest.raises(ValueError, match="does not contain"):
+        _ = missing.command
+    with pytest.raises(ValueError, match="multiple"):
+        _ = ambiguous.command
+
+
+def test_set_command_rejects_unsupported_or_multiline_replacements():
+    """A replacement remains one command using a recognized MPI launcher."""
+    script = SlurmScript("#!/bin/bash\n#SBATCH --time=01:00:00\nsrun aspect case.prm\n")
+
+    with pytest.raises(ValueError, match="ibrun, srun, or mpirun"):
+        script.set_command("aspect case_modified.prm")
+    with pytest.raises(ValueError, match="single line"):
+        script.set_command("srun aspect case.prm\necho extra")
