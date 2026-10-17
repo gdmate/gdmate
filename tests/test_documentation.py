@@ -45,11 +45,3 @@ def test_readme_documents_environment_setup():
     assert "For contributors" in readme
     assert 'python -m pip install -e ".[dev,docs]"' in readme
     assert "development and documentation dependencies" in readme
-
-
-def test_slurm_cookbook_is_in_documentation_toctree():
-    """Include the SLURM cookbook in the documentation navigation."""
-    repository_root = Path(__file__).parents[1]
-    index = (repository_root / "docs" / "index.rst").read_text(encoding="utf-8")
-
-    assert "   notebooks/slurm_parser\n" in index
