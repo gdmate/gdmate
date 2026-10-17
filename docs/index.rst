@@ -19,6 +19,7 @@
    notebooks/aspect_tools/log_parser
    notebooks/aspect_tools/model_parser
    notebooks/slurm_parser
+   notebooks/surface_process/gospl_figure1_reconstruction
    api
 
 
