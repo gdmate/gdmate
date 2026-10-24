@@ -18,6 +18,7 @@
    notebooks/rheology_geotherm
    notebooks/aspect_tools/log_parser
    notebooks/aspect_tools/model_parser
+   notebooks/slurm_parser
    api
 
 
