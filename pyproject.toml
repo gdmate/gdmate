@@ -42,6 +42,10 @@ dev = [
   "pytest>=8",
   "ruff>=0.11",
 ]
+notebooks = [
+  "cartopy",
+  "xarray",
+]
 docs = [
   "ipython",
   "myst-parser",
