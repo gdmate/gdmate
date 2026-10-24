@@ -12,14 +12,7 @@
 
    contributing
    guides/python_package
-   notebooks/helloworld
-   notebooks/visualization
-   notebooks/aspect_tools/aspect_parameter_io
-   notebooks/rheology_geotherm
-   notebooks/aspect_tools/log_parser
-   notebooks/aspect_tools/model_parser
-   notebooks/slurm_parser
-   notebooks/surface_process/gospl_figure1_reconstruction
+   cookbooks
    api
 
 
