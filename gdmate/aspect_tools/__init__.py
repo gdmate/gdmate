@@ -11,8 +11,10 @@ from gdmate.aspect_tools.log import (
     AspectTimingSection,
     UnsupportedAspectVersionError,
 )
+from gdmate.aspect_tools.model import AspectModelParser
 
 __all__ = [
+    "AspectModelParser",
     "parse_parameters_to_dict",
     "save_parameters_from_dict",
     "AspectLogParser",

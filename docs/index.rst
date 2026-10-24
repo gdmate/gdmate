@@ -17,6 +17,7 @@
    notebooks/aspect_tools/aspect_parameter_io
    notebooks/rheology_geotherm
    notebooks/aspect_tools/log_parser
+   notebooks/aspect_tools/model_parser
    api
 
 
