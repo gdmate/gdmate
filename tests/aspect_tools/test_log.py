@@ -1,11 +1,13 @@
 """Tests for parsing ASPECT log files."""
 
+from collections import Counter
 from pathlib import Path
 
 import pytest
 
 from gdmate.aspect_tools.log import (
     AspectLogParser,
+    AspectSolverOutput,
     AspectTimestep,
     AspectTimingBlock,
     AspectTimingSection,
@@ -69,6 +71,59 @@ def test_mismatched_time_units_are_rejected(tmp_path):
 
     with pytest.raises(ValueError, match="time and timestep units differ"):
         list(AspectLogParser(path, validate_version=False))
+
+
+def test_parse_solver_outputs_for_each_timestep(tmp_path):
+    path = write_log(
+        tmp_path,
+        """*** Timestep 0: t=0 years, dt=0 years
+Solving temperature system... 9 iterations.
+Skipping ve_stress_xx composition solve because RHS is zero.
+Solving Stokes system (GMG)... 200+0 iterations.
+linear solver failed (GMG), continuing
+*** Timestep 1: t=10 years, dt=10 years
+Solving ve_stress_xx system ... 4 iterations.
+Solving Stokes system (GMG)... 8+1 iterations.
+""",
+    )
+
+    outputs = AspectLogParser(
+        path, validate_version=False
+    ).parse_solver_outputs()
+
+    timestep_0 = AspectTimestep(0, 0.0, 0.0, "years", 1)
+    timestep_1 = AspectTimestep(1, 10.0, 10.0, "years", 6)
+    assert outputs == [
+        AspectSolverOutput(
+            timestep_0, "temperature", None, (9,), "solved", 2
+        ),
+        AspectSolverOutput(
+            timestep_0, "ve_stress_xx", None, (), "skipped", 3
+        ),
+        AspectSolverOutput(
+            timestep_0, "Stokes", "GMG", (200, 0), "failed", 4
+        ),
+        AspectSolverOutput(
+            timestep_1, "ve_stress_xx", None, (4,), "solved", 7
+        ),
+        AspectSolverOutput(
+            timestep_1, "Stokes", "GMG", (8, 1), "solved", 8
+        ),
+    ]
+
+
+def test_malformed_solver_output_reports_source_line(tmp_path):
+    path = write_log(
+        tmp_path,
+        """*** Timestep 0: t=0 years, dt=0 years
+Solving temperature system... invalid iterations.
+""",
+    )
+
+    with pytest.raises(
+        ValueError, match=r"log\.txt:2: malformed solver output record"
+    ):
+        AspectLogParser(path, validate_version=False).parse_solver_outputs()
 
 
 def test_parse_timing_block_and_associate_latest_timestep(tmp_path):
@@ -228,3 +283,30 @@ def test_repository_fixture_contains_two_real_timing_blocks():
     assert [block.timestep_number for block in blocks] == [100, 200]
     assert [block.total_wallclock_seconds for block in blocks] == [3190.0, 6310.0]
     assert [len(block.sections) for block in blocks] == [27, 27]
+
+
+def test_real_solver_output_excerpt_contains_three_complete_timesteps():
+    path = DATA_DIR / "solver_output_log_excerpt.txt"
+    outputs = AspectLogParser(path).parse_solver_outputs()
+
+    assert path.stat().st_size < 100_000
+    assert len(outputs) == 720
+    assert {
+        (output.timestep.number, output.timestep.line_number)
+        for output in outputs
+    } == {(0, 63), (1, 497), (2, 932)}
+    assert Counter(output.status for output in outputs) == {
+        "solved": 451,
+        "skipped": 180,
+        "failed": 89,
+    }
+    assert Counter(output.system for output in outputs) == {
+        "temperature": 90,
+        "ve_stress_xx": 90,
+        "ve_stress_yy": 90,
+        "ve_stress_xy": 90,
+        "ve_stress_xx_old": 90,
+        "ve_stress_yy_old": 90,
+        "ve_stress_xy_old": 90,
+        "Stokes": 90,
+    }
