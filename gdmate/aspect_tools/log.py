@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import re
 from collections.abc import Iterator
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from pathlib import Path
 from typing import List, Optional, Tuple, Union
 
@@ -23,6 +23,19 @@ _PERCENT_PATTERN = re.compile(rf"^(?P<value>{_NUMBER})%$")
 _VERSION_PATTERN = re.compile(
     r"^\s*--\s+\.\s+version\s+(?P<version>\S+)"
 )
+_SOLVER_OUTPUT_PATTERN = re.compile(
+    r"^\s*Solving\s+(?P<system>.+?)\s+system\s*"
+    r"(?:\((?P<solver>[^)]+)\))?\s*\.\.\.\s*"
+    r"(?P<iterations>\d+(?:\+\d+)*)\s+iterations\.\s*$"
+)
+_SKIPPED_SOLVER_PATTERN = re.compile(
+    r"^\s*Skipping\s+(?P<system>.+?)\s+composition solve "
+    r"because RHS is zero\.\s*$"
+)
+_FAILED_SOLVER_PATTERN = re.compile(
+    r"^\s*linear solver failed(?:\s+\((?P<solver>[^)]+)\))?,\s*"
+    r"continuing\s*$"
+)
 
 
 class UnsupportedAspectVersionError(ValueError):
@@ -37,6 +50,18 @@ class AspectTimestep:
     time: float
     timestep_size: float
     time_unit: str
+    line_number: int
+
+
+@dataclass(frozen=True)
+class AspectSolverOutput:
+    """One linear-solver result associated with an ASPECT timestep."""
+
+    timestep: AspectTimestep
+    system: str
+    solver: Optional[str]
+    iteration_counts: Tuple[int, ...]
+    status: str
     line_number: int
 
 
@@ -111,6 +136,108 @@ class AspectLogParser:
     def parse(self) -> List[AspectTimestep]:
         """Collect and return all timestep records from the log."""
         return list(self.iter_timesteps())
+
+    def iter_solver_outputs(self) -> Iterator[AspectSolverOutput]:
+        """Yield solved, skipped, and failed linear-solver records.
+
+        A timestep can contain multiple records for the same system when an
+        outer nonlinear solver repeats its linear solves. Compound counts such
+        as ``200+0 iterations`` are retained as a tuple. A restarted log can
+        contain repeated timestep numbers; records therefore carry the full
+        :class:`AspectTimestep` rather than only its number.
+        """
+        self._validate_supported_version()
+        latest_timestep = None
+        pending_output = None
+
+        with self.path.open(encoding="utf-8", errors="replace") as stream:
+            for line_number, line in enumerate(stream, start=1):
+                if line.lstrip().startswith("*** Timestep"):
+                    if pending_output is not None:
+                        yield pending_output
+                        pending_output = None
+                    latest_timestep = self._parse_timestep(line, line_number)
+                    continue
+
+                if _VERSION_PATTERN.match(line) is not None:
+                    if pending_output is not None:
+                        yield pending_output
+                        pending_output = None
+                    latest_timestep = None
+                    continue
+
+                solve_match = _SOLVER_OUTPUT_PATTERN.fullmatch(line)
+                skipped_match = _SKIPPED_SOLVER_PATTERN.fullmatch(line)
+                failed_match = _FAILED_SOLVER_PATTERN.fullmatch(line)
+
+                if failed_match is not None:
+                    if pending_output is None:
+                        raise self._parse_error(
+                            line_number, "solver failure without a solver record"
+                        )
+                    failed_solver = failed_match.group("solver")
+                    if (
+                        failed_solver is not None
+                        and pending_output.solver != failed_solver
+                    ):
+                        raise self._parse_error(
+                            line_number,
+                            "solver failure does not match preceding solver",
+                        )
+                    yield replace(pending_output, status="failed")
+                    pending_output = None
+                    continue
+
+                if solve_match is not None or skipped_match is not None:
+                    if pending_output is not None:
+                        yield pending_output
+                    if latest_timestep is None:
+                        raise self._parse_error(
+                            line_number, "solver output precedes the first timestep"
+                        )
+
+                    if solve_match is not None:
+                        pending_output = AspectSolverOutput(
+                            timestep=latest_timestep,
+                            system=solve_match.group("system"),
+                            solver=solve_match.group("solver"),
+                            iteration_counts=tuple(
+                                int(value)
+                                for value in solve_match.group("iterations").split("+")
+                            ),
+                            status="solved",
+                            line_number=line_number,
+                        )
+                    else:
+                        assert skipped_match is not None
+                        pending_output = AspectSolverOutput(
+                            timestep=latest_timestep,
+                            system=skipped_match.group("system"),
+                            solver=None,
+                            iteration_counts=(),
+                            status="skipped",
+                            line_number=line_number,
+                        )
+                    continue
+
+                if pending_output is not None:
+                    yield pending_output
+                    pending_output = None
+
+                if line.lstrip().startswith("Solving") and "system" in line:
+                    if "---" in line:
+                        latest_timestep = None
+                        continue
+                    raise self._parse_error(
+                        line_number, "malformed solver output record"
+                    )
+
+            if pending_output is not None:
+                yield pending_output
+
+    def parse_solver_outputs(self) -> List[AspectSolverOutput]:
+        """Collect and return all linear-solver records from the log."""
+        return list(self.iter_solver_outputs())
 
     def iter_timing_blocks(self) -> Iterator[AspectTimingBlock]:
         """Yield wall-clock timing tables while streaming through the log."""
