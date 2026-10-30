@@ -31,6 +31,7 @@ classifiers = [
 dependencies = [
   "matplotlib",
   "numpy",
+  "pandas",
   "pyvista",
   "scipy",
 ]
