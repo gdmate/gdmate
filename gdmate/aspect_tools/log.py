@@ -23,6 +23,10 @@ _PERCENT_PATTERN = re.compile(rf"^(?P<value>{_NUMBER})%$")
 _VERSION_PATTERN = re.compile(
     r"^\s*--\s+\.\s+version\s+(?P<version>\S+)"
 )
+_GRAPHICAL_OUTPUT_PATTERN = re.compile(
+    r"^\s*Writing graphical output:\s*(?P<path>\S.*?)\s*$"
+)
+_SOLUTION_NUMBER_PATTERN = re.compile(r"(?:^|/)solution-(?P<number>\d+)$")
 
 
 class UnsupportedAspectVersionError(ValueError):
@@ -37,6 +41,16 @@ class AspectTimestep:
     time: float
     timestep_size: float
     time_unit: str
+    line_number: int
+
+
+@dataclass(frozen=True)
+class AspectGraphicalOutput:
+    """A numbered graphical-output prefix and its associated timestep."""
+
+    timestep: Optional[AspectTimestep]
+    path: str
+    solution_number: int
     line_number: int
 
 
@@ -111,6 +125,51 @@ class AspectLogParser:
     def parse(self) -> List[AspectTimestep]:
         """Collect and return all timestep records from the log."""
         return list(self.iter_timesteps())
+
+    def iter_graphical_outputs(self) -> Iterator[AspectGraphicalOutput]:
+        """Yield generated graphical-output prefixes and their timesteps.
+
+        ASPECT reports the output path without a file extension. The value is
+        retained exactly as printed because the corresponding output can
+        consist of several files with different extensions. The integer after
+        the final ``solution-`` prefix is stored separately for indexing.
+        Outputs produced during initial mesh refinement have no timestep.
+        """
+        self._validate_supported_version()
+        latest_timestep = None
+
+        with self.path.open(encoding="utf-8", errors="replace") as stream:
+            for line_number, line in enumerate(stream, start=1):
+                if line.lstrip().startswith("*** Timestep"):
+                    latest_timestep = self._parse_timestep(line, line_number)
+                    continue
+
+                if "Writing graphical output:" not in line:
+                    continue
+
+                match = _GRAPHICAL_OUTPUT_PATTERN.fullmatch(line)
+                if match is None:
+                    raise self._parse_error(
+                        line_number, "malformed graphical output record"
+                    )
+                path = match.group("path")
+                solution_match = _SOLUTION_NUMBER_PATTERN.search(path)
+                if solution_match is None:
+                    raise self._parse_error(
+                        line_number,
+                        "graphical output path does not end in solution-NNNNN",
+                    )
+
+                yield AspectGraphicalOutput(
+                    timestep=latest_timestep,
+                    path=path,
+                    solution_number=int(solution_match.group("number")),
+                    line_number=line_number,
+                )
+
+    def parse_graphical_outputs(self) -> List[AspectGraphicalOutput]:
+        """Collect and return all generated graphical-output records."""
+        return list(self.iter_graphical_outputs())
 
     def iter_timing_blocks(self) -> Iterator[AspectTimingBlock]:
         """Yield wall-clock timing tables while streaming through the log."""
