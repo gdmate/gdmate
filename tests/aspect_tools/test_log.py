@@ -5,6 +5,7 @@ from pathlib import Path
 import pytest
 
 from gdmate.aspect_tools.log import (
+    AspectGraphicalOutput,
     AspectLogParser,
     AspectTimestep,
     AspectTimingBlock,
@@ -69,6 +70,79 @@ def test_mismatched_time_units_are_rejected(tmp_path):
 
     with pytest.raises(ValueError, match="time and timestep units differ"):
         list(AspectLogParser(path, validate_version=False))
+
+
+def test_parse_graphical_outputs_with_associated_timesteps(tmp_path):
+    path = write_log(
+        tmp_path,
+        """*** Timestep 0: t=0 seconds, dt=0 seconds
+   Postprocessing:
+     Writing graphical output: output/solution/solution-00000
+*** Timestep 1: t=0.0123369 seconds, dt=0.0123369 seconds
+   Solving temperature system... 31 iterations.
+   Solving Stokes system (GMG)... 8+0 iterations.
+
+   Postprocessing:
+     RMS, max velocity: 5.93 m/s, 8.38 m/s
+     Writing graphical output: output/solution/solution-00001
+*** Timestep 2: t=0.0160651 seconds, dt=0.00372818 seconds
+   Postprocessing:
+     RMS, max velocity: 10.9 m/s, 15.5 m/s
+""",
+    )
+
+    outputs = AspectLogParser(
+        path, validate_version=False
+    ).parse_graphical_outputs()
+
+    assert outputs == [
+        AspectGraphicalOutput(
+            AspectTimestep(0, 0.0, 0.0, "seconds", 1),
+            "output/solution/solution-00000",
+            0,
+            3,
+        ),
+        AspectGraphicalOutput(
+            AspectTimestep(1, 0.0123369, 0.0123369, "seconds", 4),
+            "output/solution/solution-00001",
+            1,
+            10,
+        ),
+    ]
+
+
+def test_graphical_output_during_initial_refinement_has_no_timestep(tmp_path):
+    path = write_log(
+        tmp_path,
+        "Writing graphical output: output/solution/solution-00000\n",
+    )
+
+    outputs = AspectLogParser(
+        path, validate_version=False
+    ).parse_graphical_outputs()
+
+    assert outputs == [
+        AspectGraphicalOutput(
+            None,
+            "output/solution/solution-00000",
+            0,
+            1,
+        )
+    ]
+
+
+def test_graphical_output_without_solution_number_is_rejected(tmp_path):
+    path = write_log(
+        tmp_path,
+        """*** Timestep 0: t=0 seconds, dt=0 seconds
+Writing graphical output: output/solution/latest
+""",
+    )
+
+    with pytest.raises(ValueError, match="does not end in solution-NNNNN"):
+        AspectLogParser(
+            path, validate_version=False
+        ).parse_graphical_outputs()
 
 
 def test_parse_timing_block_and_associate_latest_timestep(tmp_path):
@@ -228,3 +302,18 @@ def test_repository_fixture_contains_two_real_timing_blocks():
     assert [block.timestep_number for block in blocks] == [100, 200]
     assert [block.total_wallclock_seconds for block in blocks] == [3190.0, 6310.0]
     assert [len(block.sections) for block in blocks] == [27, 27]
+
+
+def test_real_log_excerpt_contains_initial_refinement_outputs():
+    path = DATA_DIR / "initial_refinement_log_excerpt.txt"
+    parser = AspectLogParser(path)
+
+    timesteps = parser.parse()
+    outputs = parser.parse_graphical_outputs()
+
+    assert path.stat().st_size < 100_000
+    assert len(timesteps) == 1
+    assert timesteps[0].number == 0
+    assert [output.solution_number for output in outputs] == [0, 1, 2, 3, 4]
+    assert [output.timestep for output in outputs[:4]] == [None] * 4
+    assert outputs[-1].timestep == timesteps[-1]

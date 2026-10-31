@@ -5,6 +5,7 @@ from gdmate.aspect_tools.io import (
     save_parameters_from_dict,
 )
 from gdmate.aspect_tools.log import (
+    AspectGraphicalOutput,
     AspectLogParser,
     AspectTimestep,
     AspectTimingBlock,
@@ -16,6 +17,7 @@ __all__ = [
     "parse_parameters_to_dict",
     "save_parameters_from_dict",
     "AspectLogParser",
+    "AspectGraphicalOutput",
     "AspectTimestep",
     "AspectTimingBlock",
     "AspectTimingSection",
