@@ -11,3 +11,6 @@ docs/_autosummary/
 docs/_build/
 docs/generated/
 docs/notebooks/
+
+# Slab2 notebook download cache
+/notebooks/data/slab2/
