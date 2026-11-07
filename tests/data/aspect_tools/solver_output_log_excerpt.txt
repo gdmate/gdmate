@@ -1,0 +1,1365 @@
+-----------------------------------------------------------------------------
+--                             This is ASPECT                              --
+-- The Advanced Solver for Planetary Evolution, Convection, and Tectonics. --
+-----------------------------------------------------------------------------
+--     . version 3.1.0-pre (master_TwoD_rebase, 7c5ddafc1)
+--     . using deal.II 9.8.0
+--     .       with 32 bit indices
+--     .       with vectorization level 2 (AVX, 4 doubles, 256 bits)
+--     . using Trilinos 16.2.0
+--     . using p4est 2.8.7
+--     . using Geodynamic World Builder 1.2.0 (indicator_field, 69e72be49)
+--     . running in OPTIMIZED mode
+--     . running with 8 MPI processes
+-----------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------
+-- For information on how to cite ASPECT, see:
+--   https://aspect.geodynamics.org/citing.html?ver=3.1.0-pre&GWB=1&NewtonSolver=1&dg=1&mf=1&particles=1&sha=7c5ddafc1&src=code
+-----------------------------------------------------------------------------
+Number of active cells: 1,728 (on 4 levels)
+Number of degrees of freedom: 178,660 (14,210+1,825+7,105+15,552+15,552+15,552+15,552+15,552+15,552+15,552+15,552+15,552+15,552)
+
+   Postprocessing:
+     Writing graphical output: output/solution/solution-00000
+     RMS, max velocity:        0 m/year, 0 m/year
+     Temperature min/avg/max:  273 K, 2279 K, 3211 K
+     Writing depth average:    output/depth_average
+     Writing particle output:  output/particles/particles-00000
+
+Number of active cells: 3,024 (on 5 levels)
+Number of degrees of freedom: 312,910 (25,034+3,199+12,517+27,216+27,216+27,216+27,216+27,216+27,216+27,216+27,216+27,216+27,216)
+
+   Postprocessing:
+     Writing graphical output:     output/solution/solution-00001
+     RMS, max velocity:            0 m/year, 0 m/year
+     Temperature min/avg/max:      273 K, 2279 K, 3211 K
+     Writing depth average:        output/depth_average
+     Number of advected particles: 680400
+
+Number of active cells: 7,776 (on 6 levels)
+Number of degrees of freedom: 803,883 (63,958+8,106+31,979+69,984+69,984+69,984+69,984+69,984+69,984+69,984+69,984+69,984+69,984)
+
+   Postprocessing:
+     Writing graphical output:     output/solution/solution-00002
+     RMS, max velocity:            0 m/year, 0 m/year
+     Temperature min/avg/max:      273 K, 2279 K, 3211 K
+     Writing depth average:        output/depth_average
+     Number of advected particles: 1749600
+
+Number of active cells: 12,786 (on 7 levels)
+Number of degrees of freedom: 1,322,894 (105,826+13,415+52,913+115,074+115,074+115,074+115,074+115,074+115,074+115,074+115,074+115,074+115,074)
+
+   Postprocessing:
+     Writing graphical output:     output/solution/solution-00003
+     RMS, max velocity:            0 m/year, 0 m/year
+     Temperature min/avg/max:      273 K, 2280 K, 3211 K
+     Writing depth average:        output/depth_average
+     Number of advected particles: 2876850
+
+Number of active cells: 14,550 (on 8 levels)
+Number of degrees of freedom: 1,511,011 (123,856+15,727+61,928+130,950+130,950+130,950+130,950+130,950+130,950+130,950+130,950+130,950+130,950)
+
+*** Timestep 0:  t=0 years, dt=0 years
+   Solving temperature system... 0 iterations.
+   Advecting particles...  done.
+   Skipping ve_stress_xx composition solve because RHS is zero.
+   Skipping ve_stress_yy composition solve because RHS is zero.
+   Skipping ve_stress_xy composition solve because RHS is zero.
+   Skipping ve_stress_xx_old composition solve because RHS is zero.
+   Skipping ve_stress_yy_old composition solve because RHS is zero.
+   Skipping ve_stress_xy_old composition solve because RHS is zero.
+   Initial Newton Stokes residual = 1.12254e+14, v = 1.12254e+14, p = 0
+
+   Solving Stokes system (GMG)... 189+0 iterations.
+      Newton system information: Norm of the rhs: 1.12254e+14
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.87813e-16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+      Relative nonlinear residual (total system) after nonlinear iteration 1: 1
+
+   Solving temperature system... 0 iterations.
+   Advecting particles...  done.
+   Skipping ve_stress_xx composition solve because RHS is zero.
+   Skipping ve_stress_yy composition solve because RHS is zero.
+   Skipping ve_stress_xy composition solve because RHS is zero.
+   Skipping ve_stress_xx_old composition solve because RHS is zero.
+   Skipping ve_stress_yy_old composition solve because RHS is zero.
+   Skipping ve_stress_xy_old composition solve because RHS is zero.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 8.68719e+12, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.87813e-16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0773889
+      Relative nonlinear residual (total system) after nonlinear iteration 2: 0.0773889
+
+   Solving temperature system... 0 iterations.
+   Advecting particles...  done.
+   Skipping ve_stress_xx composition solve because RHS is zero.
+   Skipping ve_stress_yy composition solve because RHS is zero.
+   Skipping ve_stress_xy composition solve because RHS is zero.
+   Skipping ve_stress_xx_old composition solve because RHS is zero.
+   Skipping ve_stress_yy_old composition solve because RHS is zero.
+   Skipping ve_stress_xy_old composition solve because RHS is zero.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 7.40944e+12, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.87813e-16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0660062
+      Relative nonlinear residual (total system) after nonlinear iteration 3: 0.0660062
+
+   Solving temperature system... 0 iterations.
+   Advecting particles...  done.
+   Skipping ve_stress_xx composition solve because RHS is zero.
+   Skipping ve_stress_yy composition solve because RHS is zero.
+   Skipping ve_stress_xy composition solve because RHS is zero.
+   Skipping ve_stress_xx_old composition solve because RHS is zero.
+   Skipping ve_stress_yy_old composition solve because RHS is zero.
+   Skipping ve_stress_xy_old composition solve because RHS is zero.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 6.98807e+12, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.87813e-16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0622524
+      Relative nonlinear residual (total system) after nonlinear iteration 4: 0.0622524
+
+   Solving temperature system... 0 iterations.
+   Advecting particles...  done.
+   Skipping ve_stress_xx composition solve because RHS is zero.
+   Skipping ve_stress_yy composition solve because RHS is zero.
+   Skipping ve_stress_xy composition solve because RHS is zero.
+   Skipping ve_stress_xx_old composition solve because RHS is zero.
+   Skipping ve_stress_yy_old composition solve because RHS is zero.
+   Skipping ve_stress_xy_old composition solve because RHS is zero.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 4.63974e+12, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.87813e-16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0413326
+      Relative nonlinear residual (total system) after nonlinear iteration 5: 0.0413326
+
+   Solving temperature system... 0 iterations.
+   Advecting particles...  done.
+   Skipping ve_stress_xx composition solve because RHS is zero.
+   Skipping ve_stress_yy composition solve because RHS is zero.
+   Skipping ve_stress_xy composition solve because RHS is zero.
+   Skipping ve_stress_xx_old composition solve because RHS is zero.
+   Skipping ve_stress_yy_old composition solve because RHS is zero.
+   Skipping ve_stress_xy_old composition solve because RHS is zero.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 4.28632e+12, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.87813e-16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0381842
+      Relative nonlinear residual (total system) after nonlinear iteration 6: 0.0381842
+
+   Solving temperature system... 0 iterations.
+   Advecting particles...  done.
+   Skipping ve_stress_xx composition solve because RHS is zero.
+   Skipping ve_stress_yy composition solve because RHS is zero.
+   Skipping ve_stress_xy composition solve because RHS is zero.
+   Skipping ve_stress_xx_old composition solve because RHS is zero.
+   Skipping ve_stress_yy_old composition solve because RHS is zero.
+   Skipping ve_stress_xy_old composition solve because RHS is zero.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 4.28208e+12, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.87813e-16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0381464
+      Relative nonlinear residual (total system) after nonlinear iteration 7: 0.0381464
+
+   Solving temperature system... 0 iterations.
+   Advecting particles...  done.
+   Skipping ve_stress_xx composition solve because RHS is zero.
+   Skipping ve_stress_yy composition solve because RHS is zero.
+   Skipping ve_stress_xy composition solve because RHS is zero.
+   Skipping ve_stress_xx_old composition solve because RHS is zero.
+   Skipping ve_stress_yy_old composition solve because RHS is zero.
+   Skipping ve_stress_xy_old composition solve because RHS is zero.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 1.93733e+12, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.87813e-16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0172585
+      Relative nonlinear residual (total system) after nonlinear iteration 8: 0.0172585
+
+   Solving temperature system... 0 iterations.
+   Advecting particles...  done.
+   Skipping ve_stress_xx composition solve because RHS is zero.
+   Skipping ve_stress_yy composition solve because RHS is zero.
+   Skipping ve_stress_xy composition solve because RHS is zero.
+   Skipping ve_stress_xx_old composition solve because RHS is zero.
+   Skipping ve_stress_yy_old composition solve because RHS is zero.
+   Skipping ve_stress_xy_old composition solve because RHS is zero.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 4.01137e+12, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.87813e-16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0357348
+      Relative nonlinear residual (total system) after nonlinear iteration 9: 0.0357348
+
+   Solving temperature system... 0 iterations.
+   Advecting particles...  done.
+   Skipping ve_stress_xx composition solve because RHS is zero.
+   Skipping ve_stress_yy composition solve because RHS is zero.
+   Skipping ve_stress_xy composition solve because RHS is zero.
+   Skipping ve_stress_xx_old composition solve because RHS is zero.
+   Skipping ve_stress_yy_old composition solve because RHS is zero.
+   Skipping ve_stress_xy_old composition solve because RHS is zero.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 1.44465e+12, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.87813e-16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0128695
+      Relative nonlinear residual (total system) after nonlinear iteration 10: 0.0128695
+
+   Solving temperature system... 0 iterations.
+   Advecting particles...  done.
+   Skipping ve_stress_xx composition solve because RHS is zero.
+   Skipping ve_stress_yy composition solve because RHS is zero.
+   Skipping ve_stress_xy composition solve because RHS is zero.
+   Skipping ve_stress_xx_old composition solve because RHS is zero.
+   Skipping ve_stress_yy_old composition solve because RHS is zero.
+   Skipping ve_stress_xy_old composition solve because RHS is zero.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 9.77529e+11, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.87813e-16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.00870821
+      Relative nonlinear residual (total system) after nonlinear iteration 11: 0.00870821
+
+   Solving temperature system... 0 iterations.
+   Advecting particles...  done.
+   Skipping ve_stress_xx composition solve because RHS is zero.
+   Skipping ve_stress_yy composition solve because RHS is zero.
+   Skipping ve_stress_xy composition solve because RHS is zero.
+   Skipping ve_stress_xx_old composition solve because RHS is zero.
+   Skipping ve_stress_yy_old composition solve because RHS is zero.
+   Skipping ve_stress_xy_old composition solve because RHS is zero.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 1.76506e+12, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.87813e-16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0157239
+      Relative nonlinear residual (total system) after nonlinear iteration 12: 0.0157239
+
+   Solving temperature system... 0 iterations.
+   Advecting particles...  done.
+   Skipping ve_stress_xx composition solve because RHS is zero.
+   Skipping ve_stress_yy composition solve because RHS is zero.
+   Skipping ve_stress_xy composition solve because RHS is zero.
+   Skipping ve_stress_xx_old composition solve because RHS is zero.
+   Skipping ve_stress_yy_old composition solve because RHS is zero.
+   Skipping ve_stress_xy_old composition solve because RHS is zero.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 2.91985e+12, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.87813e-16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0260111
+      Relative nonlinear residual (total system) after nonlinear iteration 13: 0.0260111
+
+   Solving temperature system... 0 iterations.
+   Advecting particles...  done.
+   Skipping ve_stress_xx composition solve because RHS is zero.
+   Skipping ve_stress_yy composition solve because RHS is zero.
+   Skipping ve_stress_xy composition solve because RHS is zero.
+   Skipping ve_stress_xx_old composition solve because RHS is zero.
+   Skipping ve_stress_yy_old composition solve because RHS is zero.
+   Skipping ve_stress_xy_old composition solve because RHS is zero.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 6.74524e+11, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.87813e-16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.00600892
+      Relative nonlinear residual (total system) after nonlinear iteration 14: 0.00600892
+
+   Solving temperature system... 0 iterations.
+   Advecting particles...  done.
+   Skipping ve_stress_xx composition solve because RHS is zero.
+   Skipping ve_stress_yy composition solve because RHS is zero.
+   Skipping ve_stress_xy composition solve because RHS is zero.
+   Skipping ve_stress_xx_old composition solve because RHS is zero.
+   Skipping ve_stress_yy_old composition solve because RHS is zero.
+   Skipping ve_stress_xy_old composition solve because RHS is zero.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 2.54814e+12, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.87813e-16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0226998
+      Relative nonlinear residual (total system) after nonlinear iteration 15: 0.0226998
+
+   Solving temperature system... 0 iterations.
+   Advecting particles...  done.
+   Skipping ve_stress_xx composition solve because RHS is zero.
+   Skipping ve_stress_yy composition solve because RHS is zero.
+   Skipping ve_stress_xy composition solve because RHS is zero.
+   Skipping ve_stress_xx_old composition solve because RHS is zero.
+   Skipping ve_stress_yy_old composition solve because RHS is zero.
+   Skipping ve_stress_xy_old composition solve because RHS is zero.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 4.42853e+11, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.87813e-16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0039451
+      Relative nonlinear residual (total system) after nonlinear iteration 16: 0.0039451
+
+   Solving temperature system... 0 iterations.
+   Advecting particles...  done.
+   Skipping ve_stress_xx composition solve because RHS is zero.
+   Skipping ve_stress_yy composition solve because RHS is zero.
+   Skipping ve_stress_xy composition solve because RHS is zero.
+   Skipping ve_stress_xx_old composition solve because RHS is zero.
+   Skipping ve_stress_yy_old composition solve because RHS is zero.
+   Skipping ve_stress_xy_old composition solve because RHS is zero.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 4.12939e+12, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.87813e-16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0367862
+      Relative nonlinear residual (total system) after nonlinear iteration 17: 0.0367862
+
+   Solving temperature system... 0 iterations.
+   Advecting particles...  done.
+   Skipping ve_stress_xx composition solve because RHS is zero.
+   Skipping ve_stress_yy composition solve because RHS is zero.
+   Skipping ve_stress_xy composition solve because RHS is zero.
+   Skipping ve_stress_xx_old composition solve because RHS is zero.
+   Skipping ve_stress_yy_old composition solve because RHS is zero.
+   Skipping ve_stress_xy_old composition solve because RHS is zero.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 2.68576e+12, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.87813e-16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0239258
+      Relative nonlinear residual (total system) after nonlinear iteration 18: 0.0239258
+
+   Solving temperature system... 0 iterations.
+   Advecting particles...  done.
+   Skipping ve_stress_xx composition solve because RHS is zero.
+   Skipping ve_stress_yy composition solve because RHS is zero.
+   Skipping ve_stress_xy composition solve because RHS is zero.
+   Skipping ve_stress_xx_old composition solve because RHS is zero.
+   Skipping ve_stress_yy_old composition solve because RHS is zero.
+   Skipping ve_stress_xy_old composition solve because RHS is zero.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 2.68901e+12, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.87813e-16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0239547
+      Relative nonlinear residual (total system) after nonlinear iteration 19: 0.0239547
+
+   Solving temperature system... 0 iterations.
+   Advecting particles...  done.
+   Skipping ve_stress_xx composition solve because RHS is zero.
+   Skipping ve_stress_yy composition solve because RHS is zero.
+   Skipping ve_stress_xy composition solve because RHS is zero.
+   Skipping ve_stress_xx_old composition solve because RHS is zero.
+   Skipping ve_stress_yy_old composition solve because RHS is zero.
+   Skipping ve_stress_xy_old composition solve because RHS is zero.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 5.71504e+11, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.87813e-16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.00509118
+      Relative nonlinear residual (total system) after nonlinear iteration 20: 0.00509118
+
+   Solving temperature system... 0 iterations.
+   Advecting particles...  done.
+   Skipping ve_stress_xx composition solve because RHS is zero.
+   Skipping ve_stress_yy composition solve because RHS is zero.
+   Skipping ve_stress_xy composition solve because RHS is zero.
+   Skipping ve_stress_xx_old composition solve because RHS is zero.
+   Skipping ve_stress_yy_old composition solve because RHS is zero.
+   Skipping ve_stress_xy_old composition solve because RHS is zero.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 2.91375e+12, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.87813e-16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0259568
+      Relative nonlinear residual (total system) after nonlinear iteration 21: 0.0259568
+
+   Solving temperature system... 0 iterations.
+   Advecting particles...  done.
+   Skipping ve_stress_xx composition solve because RHS is zero.
+   Skipping ve_stress_yy composition solve because RHS is zero.
+   Skipping ve_stress_xy composition solve because RHS is zero.
+   Skipping ve_stress_xx_old composition solve because RHS is zero.
+   Skipping ve_stress_yy_old composition solve because RHS is zero.
+   Skipping ve_stress_xy_old composition solve because RHS is zero.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 2.97946e+12, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.87813e-16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0265421
+      Relative nonlinear residual (total system) after nonlinear iteration 22: 0.0265421
+
+   Solving temperature system... 0 iterations.
+   Advecting particles...  done.
+   Skipping ve_stress_xx composition solve because RHS is zero.
+   Skipping ve_stress_yy composition solve because RHS is zero.
+   Skipping ve_stress_xy composition solve because RHS is zero.
+   Skipping ve_stress_xx_old composition solve because RHS is zero.
+   Skipping ve_stress_yy_old composition solve because RHS is zero.
+   Skipping ve_stress_xy_old composition solve because RHS is zero.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 4.08614e+11, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.87813e-16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.00364009
+      Relative nonlinear residual (total system) after nonlinear iteration 23: 0.00364009
+
+   Solving temperature system... 0 iterations.
+   Advecting particles...  done.
+   Skipping ve_stress_xx composition solve because RHS is zero.
+   Skipping ve_stress_yy composition solve because RHS is zero.
+   Skipping ve_stress_xy composition solve because RHS is zero.
+   Skipping ve_stress_xx_old composition solve because RHS is zero.
+   Skipping ve_stress_yy_old composition solve because RHS is zero.
+   Skipping ve_stress_xy_old composition solve because RHS is zero.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 3.29256e+12, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.87813e-16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0293314
+      Relative nonlinear residual (total system) after nonlinear iteration 24: 0.0293314
+
+   Solving temperature system... 0 iterations.
+   Advecting particles...  done.
+   Skipping ve_stress_xx composition solve because RHS is zero.
+   Skipping ve_stress_yy composition solve because RHS is zero.
+   Skipping ve_stress_xy composition solve because RHS is zero.
+   Skipping ve_stress_xx_old composition solve because RHS is zero.
+   Skipping ve_stress_yy_old composition solve because RHS is zero.
+   Skipping ve_stress_xy_old composition solve because RHS is zero.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 3.93341e+12, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.87813e-16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0350404
+      Relative nonlinear residual (total system) after nonlinear iteration 25: 0.0350404
+
+   Solving temperature system... 0 iterations.
+   Advecting particles...  done.
+   Skipping ve_stress_xx composition solve because RHS is zero.
+   Skipping ve_stress_yy composition solve because RHS is zero.
+   Skipping ve_stress_xy composition solve because RHS is zero.
+   Skipping ve_stress_xx_old composition solve because RHS is zero.
+   Skipping ve_stress_yy_old composition solve because RHS is zero.
+   Skipping ve_stress_xy_old composition solve because RHS is zero.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 9.48279e+11, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.87813e-16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.00844764
+      Relative nonlinear residual (total system) after nonlinear iteration 26: 0.00844764
+
+   Solving temperature system... 0 iterations.
+   Advecting particles...  done.
+   Skipping ve_stress_xx composition solve because RHS is zero.
+   Skipping ve_stress_yy composition solve because RHS is zero.
+   Skipping ve_stress_xy composition solve because RHS is zero.
+   Skipping ve_stress_xx_old composition solve because RHS is zero.
+   Skipping ve_stress_yy_old composition solve because RHS is zero.
+   Skipping ve_stress_xy_old composition solve because RHS is zero.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 3.50621e+12, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.87813e-16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0312347
+      Relative nonlinear residual (total system) after nonlinear iteration 27: 0.0312347
+
+   Solving temperature system... 0 iterations.
+   Advecting particles...  done.
+   Skipping ve_stress_xx composition solve because RHS is zero.
+   Skipping ve_stress_yy composition solve because RHS is zero.
+   Skipping ve_stress_xy composition solve because RHS is zero.
+   Skipping ve_stress_xx_old composition solve because RHS is zero.
+   Skipping ve_stress_yy_old composition solve because RHS is zero.
+   Skipping ve_stress_xy_old composition solve because RHS is zero.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 1.60563e+12, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.87813e-16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0143035
+      Relative nonlinear residual (total system) after nonlinear iteration 28: 0.0143035
+
+   Solving temperature system... 0 iterations.
+   Advecting particles...  done.
+   Skipping ve_stress_xx composition solve because RHS is zero.
+   Skipping ve_stress_yy composition solve because RHS is zero.
+   Skipping ve_stress_xy composition solve because RHS is zero.
+   Skipping ve_stress_xx_old composition solve because RHS is zero.
+   Skipping ve_stress_yy_old composition solve because RHS is zero.
+   Skipping ve_stress_xy_old composition solve because RHS is zero.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 2.93304e+12, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.87813e-16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0261287
+      Relative nonlinear residual (total system) after nonlinear iteration 29: 0.0261287
+
+   Solving temperature system... 0 iterations.
+   Advecting particles...  done.
+   Skipping ve_stress_xx composition solve because RHS is zero.
+   Skipping ve_stress_yy composition solve because RHS is zero.
+   Skipping ve_stress_xy composition solve because RHS is zero.
+   Skipping ve_stress_xx_old composition solve because RHS is zero.
+   Skipping ve_stress_yy_old composition solve because RHS is zero.
+   Skipping ve_stress_xy_old composition solve because RHS is zero.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 5.91797e+11, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.87813e-16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.00527195
+      Relative nonlinear residual (total system) after nonlinear iteration 30: 0.00527195
+
+
+   WARNING: The nonlinear solver in the current timestep failed to converge.
+   Acting according to the parameter 'Nonlinear solver failure strategy':
+   Continuing to the next timestep even though solution is not fully converged.
+
+   Postprocessing:
+     Writing graphical output:     output/solution/solution-00004
+     RMS, max velocity:            0.0223 m/year, 0.411 m/year
+     Temperature min/avg/max:      273 K, 2280 K, 3211 K
+     Writing depth average:        output/depth_average
+     Number of advected particles: 2037000
+
+*** Timestep 1:  t=7788.32 years, dt=7788.32 years
+   Solving composition reactions... in 1 substep(s).
+   Solving temperature system... 9 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 4 iterations.
+   Solving ve_stress_yy system ... 4 iterations.
+   Solving ve_stress_xy system ... 5 iterations.
+   Solving ve_stress_xx_old system ... 4 iterations.
+   Solving ve_stress_yy_old system ... 4 iterations.
+   Solving ve_stress_xy_old system ... 5 iterations.
+   Initial Newton Stokes residual = 1.59434e+13, v = 1.59434e+13, p = 0
+
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 7.3879e+12
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 3.84794e-05, 0, 0, 0, 0, 0.0345658, 0.0323532, 0.03029, 0, 0, 0, 0.463382
+      Relative nonlinear residual (total system) after nonlinear iteration 1: 0.463382
+
+   Solving temperature system... 6 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 4 iterations.
+   Solving ve_stress_yy system ... 4 iterations.
+   Solving ve_stress_xy system ... 4 iterations.
+   Solving ve_stress_xx_old system ... 4 iterations.
+   Solving ve_stress_yy_old system ... 4 iterations.
+   Solving ve_stress_xy_old system ... 4 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 2.63682e+12, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 3.04854e-07, 0, 0, 0, 0, 0.00040661, 0.000359899, 0.000309125, 0, 0, 0, 0.165386
+      Relative nonlinear residual (total system) after nonlinear iteration 2: 0.165386
+
+   Solving temperature system... 6 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 4 iterations.
+   Solving ve_stress_xy system ... 4 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 4 iterations.
+   Solving ve_stress_xy_old system ... 4 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 1.3833e+12, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.01006e-07, 0, 0, 0, 0, 8.89666e-05, 9.00815e-05, 7.33483e-05, 0, 0, 0, 0.0867632
+      Relative nonlinear residual (total system) after nonlinear iteration 3: 0.0867632
+
+   Solving temperature system... 5 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 4 iterations.
+   Solving ve_stress_xy system ... 4 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 4 iterations.
+   Solving ve_stress_xy_old system ... 4 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 1.08334e+12, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 4.25859e-08, 0, 0, 0, 0, 6.06619e-05, 6.53602e-05, 6.17636e-05, 0, 0, 0, 0.0679487
+      Relative nonlinear residual (total system) after nonlinear iteration 4: 0.0679487
+
+   Solving temperature system... 5 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 8.69379e+11, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 3.08453e-08, 0, 0, 0, 0, 3.34446e-05, 3.72035e-05, 3.66701e-05, 0, 0, 0, 0.054529
+      Relative nonlinear residual (total system) after nonlinear iteration 5: 0.054529
+
+   Solving temperature system... 5 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 5.39173e+11, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.91823e-08, 0, 0, 0, 0, 2.63937e-05, 2.92346e-05, 2.4432e-05, 0, 0, 0, 0.0338179
+      Relative nonlinear residual (total system) after nonlinear iteration 6: 0.0338179
+
+   Solving temperature system... 5 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 3.6006e+11, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 2.62487e-08, 0, 0, 0, 0, 2.67962e-05, 2.55738e-05, 2.5622e-05, 0, 0, 0, 0.0225836
+      Relative nonlinear residual (total system) after nonlinear iteration 7: 0.0225836
+
+   Solving temperature system... 5 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 2.7987e+11, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 2.82155e-08, 0, 0, 0, 0, 2.72771e-05, 2.63466e-05, 2.62607e-05, 0, 0, 0, 0.0175539
+      Relative nonlinear residual (total system) after nonlinear iteration 8: 0.0175539
+
+   Solving temperature system... 5 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 2.20126e+11, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.59943e-08, 0, 0, 0, 0, 9.5902e-06, 1.09538e-05, 9.81352e-06, 0, 0, 0, 0.0138067
+      Relative nonlinear residual (total system) after nonlinear iteration 9: 0.0138067
+
+   Solving temperature system... 5 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 1.76114e+11, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.20848e-08, 0, 0, 0, 0, 8.87674e-06, 8.81451e-06, 7.51323e-06, 0, 0, 0, 0.0110461
+      Relative nonlinear residual (total system) after nonlinear iteration 10: 0.0110461
+
+   Solving temperature system... 5 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 1.36956e+11, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 2.08304e-08, 0, 0, 0, 0, 1.42433e-05, 1.75385e-05, 1.33648e-05, 0, 0, 0, 0.0085901
+      Relative nonlinear residual (total system) after nonlinear iteration 11: 0.0085901
+
+   Solving temperature system... 5 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 1.11661e+11, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.79153e-08, 0, 0, 0, 0, 9.95479e-06, 1.1303e-05, 9.78508e-06, 0, 0, 0, 0.00700355
+      Relative nonlinear residual (total system) after nonlinear iteration 12: 0.00700355
+
+   Solving temperature system... 5 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 8.74139e+10, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.5712e-08, 0, 0, 0, 0, 1.1134e-05, 1.11081e-05, 1.18558e-05, 0, 0, 0, 0.00548275
+      Relative nonlinear residual (total system) after nonlinear iteration 13: 0.00548275
+
+   Solving temperature system... 5 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 6.92516e+10, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.33919e-08, 0, 0, 0, 0, 1.73904e-05, 1.50869e-05, 1.5086e-05, 0, 0, 0, 0.00434358
+      Relative nonlinear residual (total system) after nonlinear iteration 14: 0.00434358
+
+   Solving temperature system... 5 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 5.93297e+10, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.16941e-08, 0, 0, 0, 0, 5.15361e-06, 6.72647e-06, 5.41717e-06, 0, 0, 0, 0.00372126
+      Relative nonlinear residual (total system) after nonlinear iteration 15: 0.00372126
+
+   Solving temperature system... 5 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 4.89984e+10, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.42105e-08, 0, 0, 0, 0, 7.37206e-06, 8.36386e-06, 7.60337e-06, 0, 0, 0, 0.00307327
+      Relative nonlinear residual (total system) after nonlinear iteration 16: 0.00307327
+
+   Solving temperature system... 5 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 4.28632e+10, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 3.07539e-08, 0, 0, 0, 0, 2.14188e-05, 2.14966e-05, 2.06306e-05, 0, 0, 0, 0.00268846
+      Relative nonlinear residual (total system) after nonlinear iteration 17: 0.00268846
+
+   Solving temperature system... 5 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 4.47551e+10, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.37545e-08, 0, 0, 0, 0, 6.24397e-06, 7.67649e-06, 6.58023e-06, 0, 0, 0, 0.00280712
+      Relative nonlinear residual (total system) after nonlinear iteration 18: 0.00280712
+
+   Solving temperature system... 5 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 3.4743e+10, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 3.52829e-08, 0, 0, 0, 0, 2.43589e-05, 2.43861e-05, 2.33694e-05, 0, 0, 0, 0.00217914
+      Relative nonlinear residual (total system) after nonlinear iteration 19: 0.00217914
+
+   Solving temperature system... 5 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 3.03407e+10, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.87037e-08, 0, 0, 0, 0, 1.46291e-05, 1.36154e-05, 1.37536e-05, 0, 0, 0, 0.00190302
+      Relative nonlinear residual (total system) after nonlinear iteration 20: 0.00190302
+
+   Solving temperature system... 5 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 3.40967e+10, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.46307e-08, 0, 0, 0, 0, 7.73008e-06, 8.83535e-06, 8.25447e-06, 0, 0, 0, 0.00213861
+      Relative nonlinear residual (total system) after nonlinear iteration 21: 0.00213861
+
+   Solving temperature system... 4 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 2.15427e+10, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 9.33104e-09, 0, 0, 0, 0, 6.99673e-06, 7.38834e-06, 6.14896e-06, 0, 0, 0, 0.00135119
+      Relative nonlinear residual (total system) after nonlinear iteration 22: 0.00135119
+
+   Solving temperature system... 5 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 2.12075e+10, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 2.51753e-08, 0, 0, 0, 0, 1.59795e-05, 1.55897e-05, 1.57843e-05, 0, 0, 0, 0.00133017
+      Relative nonlinear residual (total system) after nonlinear iteration 23: 0.00133017
+
+   Solving temperature system... 5 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 2.32389e+10, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 2.24292e-08, 0, 0, 0, 0, 1.36968e-05, 1.44529e-05, 1.41763e-05, 0, 0, 0, 0.00145758
+      Relative nonlinear residual (total system) after nonlinear iteration 24: 0.00145758
+
+   Solving temperature system... 5 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 3.20473e+10, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 2.80113e-08, 0, 0, 0, 0, 1.54975e-05, 1.80063e-05, 1.65439e-05, 0, 0, 0, 0.00201006
+      Relative nonlinear residual (total system) after nonlinear iteration 25: 0.00201006
+
+   Solving temperature system... 4 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 2.95246e+10, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.17841e-08, 0, 0, 0, 0, 1.05422e-05, 1.0487e-05, 1.09091e-05, 0, 0, 0, 0.00185183
+      Relative nonlinear residual (total system) after nonlinear iteration 26: 0.00185183
+
+   Solving temperature system... 4 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 1.80145e+10, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 9.07865e-09, 0, 0, 0, 0, 1.15628e-05, 1.0137e-05, 9.58894e-06, 0, 0, 0, 0.0011299
+      Relative nonlinear residual (total system) after nonlinear iteration 27: 0.0011299
+
+   Solving temperature system... 5 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 2.67742e+10, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.68626e-08, 0, 0, 0, 0, 1.6984e-05, 1.44564e-05, 1.53239e-05, 0, 0, 0, 0.00167933
+      Relative nonlinear residual (total system) after nonlinear iteration 28: 0.00167933
+
+   Solving temperature system... 5 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 2.19656e+10, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 2.31755e-08, 0, 0, 0, 0, 1.26958e-05, 1.43541e-05, 1.30606e-05, 0, 0, 0, 0.00137772
+      Relative nonlinear residual (total system) after nonlinear iteration 29: 0.00137772
+
+   Solving temperature system... 5 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 2.08129e+10, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.51414e-08, 0, 0, 0, 0, 9.11175e-06, 9.62041e-06, 9.19344e-06, 0, 0, 0, 0.00130542
+      Relative nonlinear residual (total system) after nonlinear iteration 30: 0.00130542
+
+
+   WARNING: The nonlinear solver in the current timestep failed to converge.
+   Acting according to the parameter 'Nonlinear solver failure strategy':
+   Continuing to the next timestep even though solution is not fully converged.
+
+   Postprocessing:
+     RMS, max velocity:            0.0225 m/year, 0.407 m/year
+     Temperature min/avg/max:      273 K, 2280 K, 3211 K
+     Writing depth average:        output/depth_average
+     Number of advected particles: 2032884
+
+*** Timestep 2:  t=15652.1 years, dt=7863.78 years
+   Solving composition reactions... in 1 substep(s).
+   Solving temperature system... 9 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 4 iterations.
+   Solving ve_stress_yy system ... 4 iterations.
+   Solving ve_stress_xy system ... 4 iterations.
+   Solving ve_stress_xx_old system ... 4 iterations.
+   Solving ve_stress_yy_old system ... 4 iterations.
+   Solving ve_stress_xy_old system ... 4 iterations.
+   Initial Newton Stokes residual = 1.90436e+13, v = 1.90436e+13, p = 0
+
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 1.57375e+13
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 2.82245e-06, 0, 0, 0, 0, 0.00787161, 0.00918935, 0.00882387, 0, 0, 0, 0.826395
+      Relative nonlinear residual (total system) after nonlinear iteration 1: 0.826395
+
+   Solving temperature system... 7 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 2.58968e+12, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 2.3165e-07, 0, 0, 0, 0, 0.000279305, 0.000244443, 0.000218487, 0, 0, 0, 0.135987
+      Relative nonlinear residual (total system) after nonlinear iteration 2: 0.135987
+
+   Solving temperature system... 6 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 1.32786e+12, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 9.53727e-08, 0, 0, 0, 0, 9.09231e-05, 8.21083e-05, 7.80095e-05, 0, 0, 0, 0.0697277
+      Relative nonlinear residual (total system) after nonlinear iteration 3: 0.0697277
+
+   Solving temperature system... 6 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 1.03937e+12, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 6.54038e-08, 0, 0, 0, 0, 4.83102e-05, 4.50727e-05, 4.53338e-05, 0, 0, 0, 0.0545785
+      Relative nonlinear residual (total system) after nonlinear iteration 4: 0.0545785
+
+   Solving temperature system... 6 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 8.44584e+11, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 2.03874e-08, 0, 0, 0, 0, 2.77317e-05, 2.29984e-05, 2.63405e-05, 0, 0, 0, 0.0443501
+      Relative nonlinear residual (total system) after nonlinear iteration 5: 0.0443501
+
+   Solving temperature system... 6 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 6.89711e+11, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.75179e-08, 0, 0, 0, 0, 2.09761e-05, 1.91256e-05, 2.15693e-05, 0, 0, 0, 0.0362175
+      Relative nonlinear residual (total system) after nonlinear iteration 6: 0.0362175
+
+   Solving temperature system... 7 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 5.56779e+11, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.00863e-07, 0, 0, 0, 0, 7.29301e-05, 6.99418e-05, 6.7819e-05, 0, 0, 0, 0.0292371
+      Relative nonlinear residual (total system) after nonlinear iteration 7: 0.0292371
+
+   Solving temperature system... 6 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 4.36778e+11, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 5.60685e-08, 0, 0, 0, 0, 3.62095e-05, 3.70429e-05, 3.61555e-05, 0, 0, 0, 0.0229357
+      Relative nonlinear residual (total system) after nonlinear iteration 8: 0.0229357
+
+   Solving temperature system... 6 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 3.35914e+11, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 1.55021e-08, 0, 0, 0, 0, 1.36161e-05, 1.38082e-05, 1.64807e-05, 0, 0, 0, 0.0176392
+      Relative nonlinear residual (total system) after nonlinear iteration 9: 0.0176392
+
+   Solving temperature system... 6 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 2.63679e+11, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 6.16472e-08, 0, 0, 0, 0, 4.86087e-05, 4.50475e-05, 4.42589e-05, 0, 0, 0, 0.0138461
+      Relative nonlinear residual (total system) after nonlinear iteration 10: 0.0138461
+
+   Solving temperature system... 6 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 2.02462e+11, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 5.72945e-08, 0, 0, 0, 0, 3.88053e-05, 3.82999e-05, 3.69894e-05, 0, 0, 0, 0.0106315
+      Relative nonlinear residual (total system) after nonlinear iteration 11: 0.0106315
+
+   Solving temperature system... 5 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 1.64731e+11, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 7.07091e-09, 0, 0, 0, 0, 8.38461e-06, 7.23709e-06, 7.20312e-06, 0, 0, 0, 0.0086502
+      Relative nonlinear residual (total system) after nonlinear iteration 12: 0.0086502
+
+   Solving temperature system... 6 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 1.40207e+11, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 4.96279e-08, 0, 0, 0, 0, 2.78543e-05, 3.01461e-05, 2.91182e-05, 0, 0, 0, 0.00736242
+      Relative nonlinear residual (total system) after nonlinear iteration 13: 0.00736242
+
+   Solving temperature system... 6 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 1.204e+11, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 3.02698e-08, 0, 0, 0, 0, 2.09996e-05, 2.10626e-05, 1.94836e-05, 0, 0, 0, 0.00632232
+      Relative nonlinear residual (total system) after nonlinear iteration 14: 0.00632232
+
+   Solving temperature system... 6 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 9.27336e+10, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 5.06629e-08, 0, 0, 0, 0, 2.7368e-05, 2.93758e-05, 2.7639e-05, 0, 0, 0, 0.00486955
+      Relative nonlinear residual (total system) after nonlinear iteration 15: 0.00486955
+
+   Solving temperature system... 6 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 8.9932e+10, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 3.14874e-08, 0, 0, 0, 0, 2.21829e-05, 2.19739e-05, 2.10815e-05, 0, 0, 0, 0.00472243
+      Relative nonlinear residual (total system) after nonlinear iteration 16: 0.00472243
+
+   Solving temperature system... 6 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 6.25538e+10, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 8.47697e-08, 0, 0, 0, 0, 6.31953e-05, 6.06539e-05, 5.83831e-05, 0, 0, 0, 0.00328477
+      Relative nonlinear residual (total system) after nonlinear iteration 17: 0.00328477
+
+   Solving temperature system... 6 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 5.73118e+10, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 2.85433e-08, 0, 0, 0, 0, 3.03633e-05, 2.63505e-05, 2.56535e-05, 0, 0, 0, 0.00300951
+      Relative nonlinear residual (total system) after nonlinear iteration 18: 0.00300951
+
+   Solving temperature system... 6 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 4.27781e+10, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 4.58718e-08, 0, 0, 0, 0, 2.69853e-05, 2.85108e-05, 2.71004e-05, 0, 0, 0, 0.00224633
+      Relative nonlinear residual (total system) after nonlinear iteration 19: 0.00224633
+
+   Solving temperature system... 6 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 5.67739e+10, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 4.83041e-08, 0, 0, 0, 0, 3.72639e-05, 3.50106e-05, 3.40123e-05, 0, 0, 0, 0.00298126
+      Relative nonlinear residual (total system) after nonlinear iteration 20: 0.00298126
+
+   Solving temperature system... 6 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 3.01147e+10, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 7.95861e-08, 0, 0, 0, 0, 5.68411e-05, 5.56788e-05, 5.33498e-05, 0, 0, 0, 0.00158136
+      Relative nonlinear residual (total system) after nonlinear iteration 21: 0.00158136
+
+   Solving temperature system... 5 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 3.90432e+10, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 8.09596e-09, 0, 0, 0, 0, 1.13959e-05, 1.01814e-05, 9.33878e-06, 0, 0, 0, 0.0020502
+      Relative nonlinear residual (total system) after nonlinear iteration 22: 0.0020502
+
+   Solving temperature system... 6 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 2.50527e+10, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 2.90004e-08, 0, 0, 0, 0, 2.56936e-05, 2.3462e-05, 2.27722e-05, 0, 0, 0, 0.00131554
+      Relative nonlinear residual (total system) after nonlinear iteration 23: 0.00131554
+
+   Solving temperature system... 5 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 3.01537e+10, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 9.27155e-09, 0, 0, 0, 0, 9.46426e-06, 9.13115e-06, 7.41766e-06, 0, 0, 0, 0.0015834
+      Relative nonlinear residual (total system) after nonlinear iteration 24: 0.0015834
+
+   Solving temperature system... 6 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 2.912e+10, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 3.08192e-08, 0, 0, 0, 0, 2.32681e-05, 2.18324e-05, 2.12845e-05, 0, 0, 0, 0.00152912
+      Relative nonlinear residual (total system) after nonlinear iteration 25: 0.00152912
+
+   Solving temperature system... 5 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 3.27538e+10, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 8.15487e-09, 0, 0, 0, 0, 6.35715e-06, 6.09783e-06, 5.43347e-06, 0, 0, 0, 0.00171994
+      Relative nonlinear residual (total system) after nonlinear iteration 26: 0.00171994
+
+   Solving temperature system... 6 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 3.87045e+10, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 3.06363e-08, 0, 0, 0, 0, 1.60116e-05, 1.77612e-05, 1.63066e-05, 0, 0, 0, 0.00203242
+      Relative nonlinear residual (total system) after nonlinear iteration 27: 0.00203242
+
+   Solving temperature system... 6 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 3.67453e+10, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 5.22726e-08, 0, 0, 0, 0, 4.07363e-05, 3.86537e-05, 3.70266e-05, 0, 0, 0, 0.00192954
+      Relative nonlinear residual (total system) after nonlinear iteration 28: 0.00192954
+
+   Solving temperature system... 6 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 1.57252e+10, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 3.13999e-08, 0, 0, 0, 0, 1.69556e-05, 1.85023e-05, 1.69358e-05, 0, 0, 0, 0.000825751
+      Relative nonlinear residual (total system) after nonlinear iteration 29: 0.000825751
+
+   Solving temperature system... 6 iterations.
+   Advecting particles...  done.
+   Solving ve_stress_xx system ... 3 iterations.
+   Solving ve_stress_yy system ... 3 iterations.
+   Solving ve_stress_xy system ... 3 iterations.
+   Solving ve_stress_xx_old system ... 3 iterations.
+   Solving ve_stress_yy_old system ... 3 iterations.
+   Solving ve_stress_xy_old system ... 3 iterations.
+   Solving Stokes system (GMG)... 200+0 iterations.
+ linear solver failed (GMG), continuing
+      Newton system information: Norm of the rhs: 1.90218e+10, Derivative scaling factor: 0
+      Relative nonlinear residuals (temperature, compositional fields, Stokes system): 2.85986e-08, 0, 0, 0, 0, 2.2229e-05, 2.12827e-05, 2.04525e-05, 0, 0, 0, 0.000998858
+      Relative nonlinear residual (total system) after nonlinear iteration 30: 0.000998858
+
+
+   WARNING: The nonlinear solver in the current timestep failed to converge.
+   Acting according to the parameter 'Nonlinear solver failure strategy':
+   Continuing to the next timestep even though solution is not fully converged.
+
+   Postprocessing:
+     RMS, max velocity:            0.0231 m/year, 0.41 m/year
+     Temperature min/avg/max:      273 K, 2280 K, 3211 K
+     Writing depth average:        output/depth_average
+     Number of advected particles: 2029514
