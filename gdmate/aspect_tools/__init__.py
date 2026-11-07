@@ -13,6 +13,7 @@ from gdmate.aspect_tools.log import (
     AspectTimingSection,
     UnsupportedAspectVersionError,
 )
+from gdmate.aspect_tools.statistics import AspectStatistics
 
 __all__ = [
     "parse_parameters_to_dict",
@@ -24,4 +25,5 @@ __all__ = [
     "AspectTimingBlock",
     "AspectTimingSection",
     "UnsupportedAspectVersionError",
+    "AspectStatistics",
 ]
