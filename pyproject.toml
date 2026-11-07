@@ -14,7 +14,8 @@ authors = [
   { name = "Dylan Vasey" },
   { name = "John Naliboff" },
   { name = "Lorraine Hwang" },
-  { name = "Haoyuan Li" }
+  { name = "Haoyuan Li" },
+  { name = "Arushi Saxena" }
 ]
 keywords = ["geodynamics", "modeling", "visualization"]
 classifiers = [
