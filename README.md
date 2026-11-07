@@ -77,4 +77,31 @@ here are some specific features and pitfalls of the language:
 * Put dots after numbers to make them floats instead of integers.
 
 ## Contributing to GDMATE
+
 GDMATE is a community-driven, open-source Python package by and for the geodynamics community. If you have code you would like to contribute, please review our [contribution guidelines](https://gdmate.readthedocs.io/en/latest/CONTRIBUTING.html) and open a [pull request](https://docs.github.com/en/pull-requests).
+
+### Using a coding agent
+
+Contributors are encouraged to use a coding agent to help prepare changes that
+meet GDMATE's development requirements. Before making changes, ask the agent to
+read [`CONTRIBUTING.md`](CONTRIBUTING.md), inspect the existing implementation
+and tests, and keep the work focused on the requested behavior.
+
+The agent should add or update tests when behavior changes and run the relevant
+local checks used by continuous integration, including:
+
+```console
+python -m build
+ruff check .
+pytest
+pytest --nbmake notebooks
+```
+
+Documentation changes should also be built when applicable. Ask the agent to
+report which checks it ran and to explain any failures rather than bypassing or
+disabling a repository requirement.
+
+Coding agents assist contributors but do not replace contributor review. The
+contributor remains responsible for understanding the proposed changes,
+reviewing the final diff, protecting credentials and private data, and
+confirming that the contribution is scientifically and technically correct.
