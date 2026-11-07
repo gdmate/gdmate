@@ -77,4 +77,42 @@ here are some specific features and pitfalls of the language:
 * Put dots after numbers to make them floats instead of integers.
 
 ## Contributing to GDMATE
+
 GDMATE is a community-driven, open-source Python package by and for the geodynamics community. If you have code you would like to contribute, please review our [contribution guidelines](https://gdmate.readthedocs.io/en/latest/CONTRIBUTING.html) and open a [pull request](https://docs.github.com/en/pull-requests).
+
+### Guidance for abstraction
+
+GDMATE encourages contributors to organize reusable code into clear functions and classes.
+
+For example, a class for analyzing ASPECT log output could provide a method to read the log file and store the parsed data as instance attributes.
+Other methods of the same class could then use those data to perform specific analyses, such as extracting solver convergence histories or summarizing timestep statistics.
+This groups related data and operations in one place and allows multiple analyses to reuse the same parsed data.
+
+Use abstraction when it improves clarity, supports reuse, or simplifies maintenance.
+Each additional layer or dependency also adds effort to understanding, testing, reviewing, and maintaining the code.
+For example, a new class that depends on another GDMATE-specific class introduces coupling and should be added only when it provides a clear benefit.
+Prefer a straightforward implementation when an abstraction offers little improvement.
+
+### Guidance for Jupyter notebooks
+
+GDMATE welcomes Jupyter notebooks that demonstrate either of the following:
+
+- **Usage of repository code:** Show how to use a class or function implemented in GDMATE, with explanations and representative examples.
+- **A self-contained workflow:** Demonstrate a complete workflow, such as querying Slab2 data and plotting a global map of subducting slabs.
+
+In both cases, include enough explanation for readers to understand the steps, required inputs, and resulting outputs.
+
+We encourage contributors to include a new notebook or update an existing one with every pull request.
+This makes the review process more straightforward, focusing primarily on the notebook and the workflow it demonstrates.
+
+### Using a coding agent
+
+Contributors are encouraged to use a coding agent to help prepare changes that
+meet GDMATE's development requirements. Before making changes, ask the agent to
+read [`CONTRIBUTING.md`](CONTRIBUTING.md), inspect the existing implementation
+and tests, and keep the work focused on the requested behavior.
+
+Coding agents assist contributors but do not replace contributor review. The
+contributor remains responsible for understanding the proposed changes,
+reviewing the final diff, protecting credentials and private data, and
+confirming that the contribution is scientifically and technically correct.
