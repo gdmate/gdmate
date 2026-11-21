@@ -6,7 +6,7 @@ feature requests so proposed work can be discussed before implementation.
 ## Development setup
 
 Fork the repository, clone your fork, and create a branch for your change. Use
-Python 3.9 or newer and install the package with its development dependencies:
+Python 3.10 or newer and install the package with its development dependencies:
 
 ```console
 python -m pip install --upgrade pip

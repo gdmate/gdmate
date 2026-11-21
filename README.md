@@ -27,7 +27,7 @@ Click on the Binder badge at the top of this README to launch a Python environme
 
 ## Installation
 
-GDMATE requires Python 3.9 or newer. Runtime, development, and documentation
+GDMATE requires Python 3.10 or newer. Runtime, development, and documentation
 dependencies are declared in the repository's
 [pyproject.toml](https://github.com/gdmate/gdmate/blob/main/pyproject.toml).
 
