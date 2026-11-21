@@ -30,7 +30,7 @@ configuration. For example:
 
 ```toml
 [project]
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 dependencies = ["matplotlib", "numpy", "pyvista", "scipy"]
 
 [project.optional-dependencies]
@@ -64,7 +64,7 @@ plugin for Pytest. Notebook tests are run separately from unit tests:
 pytest --nbmake notebooks
 ```
 
-The GitHub Actions workflow tests Python 3.9 through 3.13. It also builds the
+The GitHub Actions workflow tests Python 3.10 through 3.13. It also builds the
 distribution, runs Ruff, and executes the selected notebooks. These checks run
 for pull requests and pushes to `main`.
 
