@@ -31,8 +31,8 @@ sys.path.insert(0, str(repository_root))
 # -- Project information -----------------------------------------------------
 
 project = "GDMATE"
-copyright = "2026, Dylan Vasey, John Naliboff, Lorraine Hwang, Haoyuan Li"
-author = "Dylan Vasey, John Naliboff, Lorraine Hwang, Haoyuan Li"
+author = "Dylan Vasey, John Naliboff, Lorraine Hwang, Haoyuan Li, Arushi Saxena"
+copyright = f"2026, {author}"
 release = "0.1.0"
 
 
