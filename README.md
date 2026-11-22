@@ -21,6 +21,13 @@ Authors (as of 2026)
 
 ## Getting started: The GDMATE Notebooks
 
+The [Slab2 notebook](notebooks/slab2.ipynb) fetches missing regional USGS slab
+depth, dip, and strike grids and reuses cached grids on later runs. Use the
+optional PyGMT environment described below to render the three regional maps.
+Enable `global_download_enabled` to prepare the all-region manifest. The
+notebook renders the global maps when that manifest is available, using the
+cached seafloor age, relief, and plate boundaries.
+
 For the moment, the main features of GDMATE are illustrated in the suite of Jupyter Notebooks housed in the `notebooks` directory. You can run and modifty these in the Binder environment [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/gdmate/gdmate/HEAD) or in your local environment with GDMATE installed. Additional notebooks and example scripts will be added as development proceeds.
 
 Click on the Binder badge at the top of this README to launch a Python environment with GDMATE installed in your web browser.
@@ -62,6 +69,37 @@ Editable mode makes changes in the local source tree immediately available in
 the environment without reinstalling the package. The `dev` extra provides
 the testing, linting, and build tools, while the `docs` extra provides the
 documentation toolchain.
+
+### Optional PyGMT environment
+
+PyGMT calls GMT's native shared library. Installing `pygmt` from conda-forge
+also installs GMT; installing PyGMT with pip alone does not provide GMT.
+Ghostscript handles PNG/PDF export, and h5netcdf reads the downloaded Slab2 grids.
+
+Use a separate environment for PyGMT plotting. From the repository root:
+
+```console
+conda env create -f environment-pygmt.yml
+conda activate py-gdmate-pygmt
+python -m pip install --no-deps --no-build-isolation -e .
+python -m ipykernel install --user --name py-gdmate-pygmt \
+    --display-name "Python (gdmate + PyGMT)"
+python -c "import pygmt; pygmt.show_versions()"
+```
+
+The YAML supplies GDMATE's runtime dependencies, build tools, notebook execution
+and test tools. The editable pip installation reuses those dependencies.
+Kernel registration makes **Python (gdmate + PyGMT)** available to your existing
+Jupyter frontend. See `notebooks/slab2.ipynb` for notebook usage.
+
+To check the installation and plotting utilities:
+
+```console
+conda run -n py-gdmate-pygmt pytest tests/test_slab2.py tests/test_slab2_plot.py
+```
+
+See the [PyGMT installation guide](https://www.pygmt.org/latest/install.html)
+for additional installation details.
 
 ## About scripting in Python
 
