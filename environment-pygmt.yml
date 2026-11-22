@@ -1,0 +1,20 @@
+name: py-gdmate-pygmt
+channels:
+  - conda-forge
+dependencies:
+  - python=3.13
+  - pygmt>=0.19,<0.20
+  - gmt>=6.5
+  - ghostscript
+  - h5netcdf
+  - ipykernel
+  - nbclient
+  - nbformat
+  - numpy
+  - scipy
+  - matplotlib
+  - pyvista
+  - pip
+  - setuptools>=77
+  - wheel
+  - pytest>=8
