@@ -12,6 +12,7 @@
 
    contributing
    guides/python_package
+   guides/flow_laws
    cookbooks
    api
 
